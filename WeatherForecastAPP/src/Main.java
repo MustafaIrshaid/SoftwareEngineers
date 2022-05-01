@@ -42,8 +42,8 @@ public class Main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel1.setText("User Name3");
+        jLabel1.setForeground(new java.awt.Color(51, 204, 255));
+        jLabel1.setText("User--- Name3");
 
         jTextField1_Name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
