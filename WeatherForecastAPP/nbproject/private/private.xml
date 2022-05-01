@@ -3,11 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/IrshaiD/Documents/GitHub/SoftwareEngineers/WeatherForecastAPP/src/Weather.java</file>
             <file>file:/C:/Users/IrshaiD/Documents/GitHub/SoftwareEngineers/WeatherForecastAPP/src/Main.java</file>
             <file>file:/C:/Users/IrshaiD/Documents/GitHub/SoftwareEngineers/WeatherForecastAPP/src/Register.java</file>
             <file>file:/C:/Users/IrshaiD/Documents/GitHub/SoftwareEngineers/WeatherForecastAPP/src/ProfileSettings.java</file>
             <file>file:/C:/Users/IrshaiD/Documents/GitHub/SoftwareEngineers/WeatherForecastAPP/src/MainDesign.java</file>
+=======
+            <file>file:/C:/Users/mohammad/Documents/GitHub/SoftwareEngineers/SoftwareEngineers/WeatherForecastAPP/src/Main.java</file>
+            <file>file:/C:/Users/mohammad/Documents/GitHub/SoftwareEngineers/SoftwareEngineers/WeatherForecastAPP/src/Register.java</file>
+            <file>file:/C:/Users/mohammad/Documents/GitHub/SoftwareEngineers/SoftwareEngineers/WeatherForecastAPP/src/admin.java</file>
+            <file>file:/C:/Users/mohammad/Documents/GitHub/SoftwareEngineers/SoftwareEngineers/WeatherForecastAPP/src/createNot.java</file>
+            <file>file:/C:/Users/mohammad/Documents/GitHub/SoftwareEngineers/SoftwareEngineers/WeatherForecastAPP/src/MainDesign.java</file>
+            <file>file:/C:/Users/mohammad/Documents/GitHub/SoftwareEngineers/SoftwareEngineers/WeatherForecastAPP/src/User.java</file>
+            <file>file:/C:/Users/mohammad/Documents/GitHub/SoftwareEngineers/SoftwareEngineers/WeatherForecastAPP/src/test.java</file>
+>>>>>>> ccac45d1270948f6e59c678ce6ba4850ebf63f73
         </group>
     </open-files>
 </project-private>

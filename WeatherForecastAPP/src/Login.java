@@ -170,6 +170,8 @@ public class Login extends javax.swing.JFrame {
                 info.role=rs.getString(7);
                 
                 MainDesign f1 = new MainDesign();
+                
+              // createNot.admin_id=rs.getInt("user_id");
                 f1.setVisible(true);
                 
                 this.setVisible(false);
