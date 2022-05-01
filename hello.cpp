@@ -10,11 +10,11 @@ int main(){
     cin>>x;
     cin >> y;
     cout<<"hello world";
-<<<<<<< HEAD
+
     cout<<"mohammad";
-=======
+
     cout<<"mustafa";
->>>>>>> ff5f256c6c3b69512aa0e29945ec57e7777e874e
+cout<<"test";
 
     cout << x + y;
     
