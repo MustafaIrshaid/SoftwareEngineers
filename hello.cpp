@@ -10,6 +10,6 @@ int main(){
 
     cout << x + y;
     
-    //Okay
+    //Okay2
     return 0;
 }
