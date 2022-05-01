@@ -154,6 +154,7 @@ public class Main extends javax.swing.JFrame {
             ResultSet rs=st.executeQuery(sq1);
             if(rs.next()){
                 MainDesign f1 = new MainDesign();
+                createNot.name=nam;
                 f1.setVisible(true);
                 
                 this.setVisible(false);
