@@ -153,12 +153,17 @@ public class Main extends javax.swing.JFrame {
         Statement st = con.createStatement();
             ResultSet rs=st.executeQuery(sq1);
             if(rs.next()){
-                JOptionPane.showMessageDialog(null, "yes");
+                MainDesign f1 = new MainDesign();
+                f1.setVisible(true);
+                
+                this.setVisible(false);
+            
+                f1.jLabel2_name.setText(pass);
                
                
             }
                 else{
-                JOptionPane.showMessageDialog(null, "no");
+                JOptionPane.showMessageDialog(null, "Password is incorrect");
                     
                 }
                
@@ -178,7 +183,10 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1_Sign_inMouseClicked
 
     private void jLabel5_Sign_UpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5_Sign_UpMouseClicked
-        // TODO add your handling code here:
+        Register reg=new Register();
+        reg.setVisible(true);
+        this.setVisible(false);
+        
     }//GEN-LAST:event_jLabel5_Sign_UpMouseClicked
 
     /**

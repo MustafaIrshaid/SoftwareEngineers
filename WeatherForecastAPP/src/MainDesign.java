@@ -213,6 +213,7 @@ public class MainDesign extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainDesign().setVisible(true);
+               
             }
         });
     }
@@ -225,7 +226,7 @@ public class MainDesign extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1_Settings;
     private javax.swing.JLabel jLabel1_Welcome;
     private javax.swing.JLabel jLabel2_Notify;
-    private javax.swing.JLabel jLabel2_name;
+    public javax.swing.JLabel jLabel2_name;
     private javax.swing.JLabel jLabel3_Requests;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
