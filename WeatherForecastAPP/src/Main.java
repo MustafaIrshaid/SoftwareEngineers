@@ -50,6 +50,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setForeground(new java.awt.Color(255, 102, 102));
         jLabel2.setText("Password");
 
         jButton1_Sign_in.setText("Sign in");
