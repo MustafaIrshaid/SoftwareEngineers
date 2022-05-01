@@ -12,8 +12,14 @@ int main(){
     cout<<"hello world";
 
     cout<<"mohammad";
+<<<<<<< HEAD
     cout<<"mustafa";
     cout<<"last";
+=======
+
+    cout<<"mustafa";
+cout<<"test";
+>>>>>>> ad853b73ee9e997f5ac51ff33c4873272603399d
 
     cout << x + y;
     
