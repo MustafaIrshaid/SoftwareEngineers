@@ -84,40 +84,7 @@ static int admin_id;
    
     String message="";
     message=jTextArea1.getText();
-       Connection con=null;
-        try{
-             Class.forName("com.mysql.jdbc.Driver");
-        con= DriverManager.getConnection("jdbc:mysql://localhost:3306/softproj","root","");
-         String getid = "select * from user where user_id != '2'";
-        Statement st = con.createStatement();
-           ResultSet rs=st.executeQuery(getid);
-           int id;
-           while(rs.next()){
-               id=rs.getInt("user_id");
-               String sqlstr="insert into notifications (`sender_id`, `reciever_id`, `message`) values('1','"+id+"','"+message+"')";
-               Statement st1 = con.createStatement();
-               
-           
-            
-            st1.executeUpdate(sqlstr);
-            
-            
-            
-               
-                
-                
-              
-               
-               
-            }
-           con.close();
-       
-             JOptionPane.showMessageDialog(null, "done");
-        }
-        
-         catch(Exception e){
-                 JOptionPane.showMessageDialog(null, e);
-                 }
+    Main.currentUser.notifyUsers(message);
 
        dispose();
        test.text=message;

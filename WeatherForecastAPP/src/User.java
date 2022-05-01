@@ -97,4 +97,9 @@ public class User {
     public void addEmployee(User emp){
     }
     
+    public void notifyUsers(String msg){
+    }
+    
+//    public void suggestChanges(){
+//    }
 }
