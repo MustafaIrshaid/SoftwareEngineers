@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  * @author mohammad
  */
 public class createNot extends javax.swing.JFrame {
-static String admin_id;
+static int admin_id;
     /**
      * Creates new form createNot
      */
