@@ -88,6 +88,13 @@ public class User {
         
     }
     
+    public void removeManager(){ 
+    }
     
+    public void requestModifyingLocation(){
+    }
+    
+    public void addEmployee(User emp){
+    }
     
 }
