@@ -42,7 +42,7 @@ public class Main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("UserName2");
+        jLabel1.setText("UserName");
 
         jTextField1_Name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -50,8 +50,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setForeground(new java.awt.Color(255, 102, 102));
-        jLabel2.setText("Password1");
+        jLabel2.setText("Password");
 
         jButton1_Sign_in.setText("Sign in");
         jButton1_Sign_in.addMouseListener(new java.awt.event.MouseAdapter() {

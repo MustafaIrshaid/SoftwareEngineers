@@ -87,7 +87,7 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="UserName2"/>
+            <Property name="text" type="java.lang.String" value="UserName"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField1_Name">
@@ -97,10 +97,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="66" green="66" red="ff" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Password1"/>
+            <Property name="text" type="java.lang.String" value="Password"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField2_Password">
