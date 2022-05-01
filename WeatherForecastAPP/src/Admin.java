@@ -26,7 +26,7 @@ public class Admin extends User {
         try{
              Class.forName("com.mysql.jdbc.Driver");
         con= DriverManager.getConnection("jdbc:mysql://localhost:3306/softproj","root","");
-         String getid = "select * from user where user_id != '2'";
+         String getid = "select * from user where role != 'admin'";
         Statement st = con.createStatement();
            ResultSet rs=st.executeQuery(getid);
            int id;

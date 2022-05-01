@@ -21,15 +21,7 @@ public class Login extends javax.swing.JFrame {
         initComponents();
     }
     
-    public static class User{
-        String id;
-        String name;
-        String location;
-        String email;
-        String role;
-    }
-        
-    
+    public static User currentUser;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -153,7 +145,6 @@ public class Login extends javax.swing.JFrame {
     private void jButton1_Sign_inActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_Sign_inActionPerformed
         String nam=jTextField1_Name.getText();
         String pass=jTextField2_Password.getText();
-        User info=new User();
         
         Connection con=null;
         try{
@@ -163,12 +154,20 @@ public class Login extends javax.swing.JFrame {
         Statement st = con.createStatement();
             ResultSet rs=st.executeQuery(sq1);
             if(rs.next()){
-                info.id=rs.getString(1);
-                info.name=rs.getString(2);
-                info.location=rs.getString(4);
-                info.email=rs.getString(5);
-                info.role=rs.getString(7);
+                if(rs.getString(7).equals("admin")) 
+                    currentUser = new Admin(rs.getInt(1),rs.getString(2),"",rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getInt(8));
+                else{
+                    if(rs.getString(6).equals("Manager"))
+                        currentUser = new Manager(rs.getInt(1),rs.getString(2),"",rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getInt(8));
+                    else{
+                        if(rs.getInt(8) != 0)
+                            currentUser = new Employee(rs.getInt(1),rs.getString(2),"",rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getInt(8));
+                        else
+                            currentUser = new User(rs.getInt(1),rs.getString(2),"",rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getInt(8));
+                    }
+                }
                 
+                System.out.println(currentUser.getRole());
                 MainDesign f1 = new MainDesign();
                 
               // createNot.admin_id=rs.getInt("user_id");
@@ -176,7 +175,7 @@ public class Login extends javax.swing.JFrame {
                 
                 this.setVisible(false);
             
-                f1.jLabel2_name.setText(info.name);
+                f1.jLabel2_name.setText(currentUser.getUsername());
                
                
             }

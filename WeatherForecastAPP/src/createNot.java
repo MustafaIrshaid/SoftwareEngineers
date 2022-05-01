@@ -84,7 +84,7 @@ static int admin_id;
    
     String message="";
     message=jTextArea1.getText();
-    Main.currentUser.notifyUsers(message);
+    Login.currentUser.notifyUsers(message);
 
        dispose();
        test.text=message;
