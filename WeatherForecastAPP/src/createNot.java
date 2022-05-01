@@ -80,7 +80,14 @@ static String name;
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     
-
+       String text= jTextArea1.getText();
+       test.text=text;
+       dispose();
+       test hpg=new test();
+               
+              
+          hpg.show();
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
