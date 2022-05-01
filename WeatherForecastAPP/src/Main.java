@@ -155,7 +155,7 @@ public class Main extends javax.swing.JFrame {
             if(rs.next()){
                 MainDesign f1 = new MainDesign();
                 
-               // createNot.admin_id=rs.getString("user_id");
+              // createNot.admin_id=rs.getInt("user_id");
                 f1.setVisible(true);
                 
                 this.setVisible(false);
