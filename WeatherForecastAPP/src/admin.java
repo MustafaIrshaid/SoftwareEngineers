@@ -31,7 +31,7 @@ public class admin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("hello");
+        jLabel1.setText("aaaaaa");
 
         jButton1.setText("getFeedback");
 
