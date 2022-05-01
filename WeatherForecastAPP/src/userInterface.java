@@ -1,18 +1,19 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 
 /**
  *
- * @author mohammad
+ * @author IrshaiD
  */
-public class adminInterface extends javax.swing.JFrame {
+public class userInterface extends javax.swing.JFrame {
 
     /**
-     * Creates new form admin
+     * Creates new form MainDesign
      */
-    public adminInterface() {
+    public userInterface() {
         initComponents();
     }
 
@@ -25,16 +26,18 @@ public class adminInterface extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1_Welcome = new javax.swing.JLabel();
         jLabel2_Notify = new javax.swing.JLabel();
         jLabel3_Requests = new javax.swing.JLabel();
         jButton1_WeatherInfo = new javax.swing.JButton();
         jButton3_SearchForUsers = new javax.swing.JButton();
+        jButton4_addFeedBack = new javax.swing.JButton();
         jLabel1_Settings = new javax.swing.JLabel();
         jLabel2_name = new javax.swing.JLabel();
-        jButton3_GetFeedBack = new javax.swing.JButton();
-        jButton4_NotifyUsers = new javax.swing.JButton();
+
+        jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,6 +71,13 @@ public class adminInterface extends javax.swing.JFrame {
             }
         });
 
+        jButton4_addFeedBack.setText("Add Feed Back");
+        jButton4_addFeedBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4_addFeedBackActionPerformed(evt);
+            }
+        });
+
         jLabel1_Settings.setText("Settings");
         jLabel1_Settings.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -83,15 +93,23 @@ public class adminInterface extends javax.swing.JFrame {
             }
         });
 
-        jButton3_GetFeedBack.setText("Get Feed Back");
-
-        jButton4_NotifyUsers.setText("Notify All Users");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(142, 142, 142)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton4_addFeedBack, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton3_SearchForUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1_WeatherInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1_Settings)))
+                .addContainerGap(144, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1_Welcome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -101,19 +119,6 @@ public class adminInterface extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3_Requests, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton3_GetFeedBack, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4_NotifyUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jLabel1_Settings))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(142, 142, 142)
-                            .addComponent(jButton1_WeatherInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jButton3_SearchForUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(129, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,12 +132,10 @@ public class adminInterface extends javax.swing.JFrame {
                 .addGap(62, 62, 62)
                 .addComponent(jButton1_WeatherInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(jButton4_addFeedBack, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton3_SearchForUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3_GetFeedBack, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4_NotifyUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
                 .addComponent(jLabel1_Settings, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -150,6 +153,14 @@ public class adminInterface extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton4_addFeedBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4_addFeedBackActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4_addFeedBackActionPerformed
+
+    private void jLabel2_nameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2_nameMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel2_nameMouseClicked
 
     private void jLabel2_NotifyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2_NotifyMouseClicked
         // TODO add your handling code here:
@@ -173,10 +184,6 @@ public class adminInterface extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jLabel1_SettingsMouseClicked
 
-    private void jLabel2_nameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2_nameMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel2_nameMouseClicked
-
     /**
      * @param args the command line arguments
      */
@@ -194,13 +201,13 @@ public class adminInterface extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(adminInterface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(userInterface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(adminInterface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(userInterface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(adminInterface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(userInterface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(adminInterface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(userInterface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -208,16 +215,17 @@ public class adminInterface extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new adminInterface().setVisible(true);
+                new userInterface().setVisible(true);
+               
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1_WeatherInfo;
-    private javax.swing.JButton jButton3_GetFeedBack;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3_SearchForUsers;
-    private javax.swing.JButton jButton4_NotifyUsers;
+    private javax.swing.JButton jButton4_addFeedBack;
     private javax.swing.JLabel jLabel1_Settings;
     private javax.swing.JLabel jLabel1_Welcome;
     private javax.swing.JLabel jLabel2_Notify;

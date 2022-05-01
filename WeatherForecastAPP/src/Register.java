@@ -29,6 +29,7 @@ public class Register extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel3 = new javax.swing.JPanel();
         jTextField1_name = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -42,6 +43,8 @@ public class Register extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jComboBox1_location = new javax.swing.JComboBox<>();
         jComboBox1_email = new javax.swing.JComboBox<>();
+        jRadioButton1_User = new javax.swing.JRadioButton();
+        jRadioButton2_Manager = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(329, 371));
@@ -74,6 +77,14 @@ public class Register extends javax.swing.JFrame {
 
         jComboBox1_email.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "@hotmail.com", "@outlook.com", "@gmail.com" }));
 
+        buttonGroup1.add(jRadioButton1_User);
+        jRadioButton1_User.setSelected(true);
+        jRadioButton1_User.setText("User");
+        jRadioButton1_User.setAutoscrolls(true);
+
+        buttonGroup1.add(jRadioButton2_Manager);
+        jRadioButton2_Manager.setText("Manager");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -81,6 +92,10 @@ public class Register extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(92, 92, 92)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jRadioButton1_User)
+                        .addGap(18, 18, 18)
+                        .addComponent(jRadioButton2_Manager))
                     .addComponent(jComboBox1_location, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jTextField1_name, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -97,7 +112,7 @@ public class Register extends javax.swing.JFrame {
                         .addComponent(jTextField1_email, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jComboBox1_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,9 +135,13 @@ public class Register extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBox1_location, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addGap(10, 10, 10)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton1_User)
+                    .addComponent(jRadioButton2_Manager))
+                .addGap(18, 18, 18)
                 .addComponent(jButton1_SignUp)
-                .addGap(26, 26, 26)
+                .addGap(15, 15, 15)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2_signin))
@@ -151,14 +170,17 @@ public class Register extends javax.swing.JFrame {
         String email2=jComboBox1_email.getSelectedItem().toString();
         String email=email1+email2;
         String loc=jComboBox1_location.getSelectedItem().toString();
-        
+        jRadioButton1_User.setActionCommand("user");
+        jRadioButton2_Manager.setActionCommand("manager");
+        String sub=buttonGroup1.getSelection().getActionCommand();
+        System.out.println(sub);
         
         Connection con=null;
         
         try{
              Class.forName("com.mysql.jdbc.Driver");
         con= DriverManager.getConnection("jdbc:mysql://localhost:3306/softproj","root","");
-       String sqlstr="insert into user (`username`, `password`, `location` , `email`, `role`) values('"+nam+"','"+pass+"','"+loc+"','"+email+"','user')";
+       String sqlstr="insert into user (`username`, `password`, `location` , `email`,`subscription`, `role`) values('"+nam+"','"+pass+"','"+loc+"','"+email+"','"+sub+"','user')";
         Statement st = con.createStatement();        
             st.executeUpdate(sqlstr);
             con.close();
@@ -214,6 +236,7 @@ public class Register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1_SignUp;
     private javax.swing.JComboBox<String> jComboBox1_email;
     private javax.swing.JComboBox<String> jComboBox1_location;
@@ -224,6 +247,8 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JRadioButton jRadioButton1_User;
+    private javax.swing.JRadioButton jRadioButton2_Manager;
     private javax.swing.JTextField jTextField1_email;
     private javax.swing.JTextField jTextField1_name;
     private javax.swing.JTextField jTextField2_password;
