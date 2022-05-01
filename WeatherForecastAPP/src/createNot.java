@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  * @author mohammad
  */
 public class createNot extends javax.swing.JFrame {
-static String name;
+static String admin_id;
     /**
      * Creates new form createNot
      */
@@ -80,9 +80,30 @@ static String name;
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     
-       String text= jTextArea1.getText();
-       test.text=text;
+    String message="";
+    message=jTextArea1.getText();
+       Connection con=null;
+        try{
+             Class.forName("com.mysql.jdbc.Driver");
+        con= DriverManager.getConnection("jdbc:mysql://localhost:3306/softproj","root","");
+        
+       String sqlstr="insert into notifications (`reciever_id`, `sender_id`, `message`) values('1','2','"+message+"')";
+        Statement st = con.createStatement();
+           
+            
+            st.executeUpdate(sqlstr);
+            
+            
+            con.close();
+             JOptionPane.showMessageDialog(null, "done");
+        }
+        
+         catch(Exception e){
+                 JOptionPane.showMessageDialog(null, e);
+                 }
+
        dispose();
+       test.text=message;
        test hpg=new test();
                
               
