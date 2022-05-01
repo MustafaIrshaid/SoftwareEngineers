@@ -51,7 +51,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Password");
+        jLabel2.setText("Passwordtest");
 
         jButton1_Sign_in.setText("Sign in");
         jButton1_Sign_in.addMouseListener(new java.awt.event.MouseAdapter() {

@@ -100,7 +100,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Password"/>
+            <Property name="text" type="java.lang.String" value="Passwordtest"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField2_Password">
