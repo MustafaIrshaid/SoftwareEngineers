@@ -4,16 +4,12 @@ using namespace std;
 
 int main(){
     int x;
+    int y;
     cin>>x;
-    while(true){ 
-    if(x%2==0){
-    x=x/2;
-    }
-    else if(x%2){
-    x=x*3+1;
-    }
-    cout<<x;
-    }
+    cin >> y;
+
+    cout << x + y;
+    
 
     return 0;
 }
