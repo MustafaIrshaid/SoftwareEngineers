@@ -6,6 +6,7 @@ int main(){
     int x;
     int y;
     int zz;
+    int hh;
     cin>>x;
     cin >> y;
 
