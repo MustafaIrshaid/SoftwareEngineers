@@ -1,7 +1,9 @@
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /*
@@ -79,22 +81,37 @@ static String admin_id;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    
+    ArrayList<Integer> ids = new ArrayList<Integer>();
     String message="";
     message=jTextArea1.getText();
        Connection con=null;
         try{
              Class.forName("com.mysql.jdbc.Driver");
         con= DriverManager.getConnection("jdbc:mysql://localhost:3306/softproj","root","");
-        
-       String sqlstr="insert into notifications (`reciever_id`, `sender_id`, `message`) values('1','2','"+message+"')";
+         String getid = "select * from user where user_id != '2'";
         Statement st = con.createStatement();
+           ResultSet rs=st.executeQuery(getid);
+           int id;
+           while(rs.next()){
+               id=rs.getInt("user_id");
+               String sqlstr="insert into notifications (`reciever_id`, `sender_id`, `message`) values('1','"+id+"','"+message+"')";
+               Statement st1 = con.createStatement();
+               
            
             
-            st.executeUpdate(sqlstr);
+            st1.executeUpdate(sqlstr);
             
             
-            con.close();
+            
+               
+                
+                
+              
+               
+               
+            }
+           con.close();
+       
              JOptionPane.showMessageDialog(null, "done");
         }
         
