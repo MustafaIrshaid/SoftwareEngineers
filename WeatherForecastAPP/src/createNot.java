@@ -94,7 +94,7 @@ static int admin_id;
            int id;
            while(rs.next()){
                id=rs.getInt("user_id");
-               String sqlstr="insert into notifications (`reciever_id`, `sender_id`, `message`) values('1','"+id+"','"+message+"')";
+               String sqlstr="insert into notifications (`sender_id`, `reciever_id`, `message`) values('1','"+id+"','"+message+"')";
                Statement st1 = con.createStatement();
                
            
