@@ -179,7 +179,9 @@ public class MainDesign extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3_SearchForUsersActionPerformed
 
     private void jLabel1_SettingsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1_SettingsMouseClicked
-        // TODO add your handling code here:
+        ProfileSettings ps=new ProfileSettings();
+        ps.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jLabel1_SettingsMouseClicked
 
     /**

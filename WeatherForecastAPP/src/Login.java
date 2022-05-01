@@ -12,14 +12,24 @@ import javax.swing.JOptionPane;
  *
  * @author IrshaiD
  */
-public class Main extends javax.swing.JFrame {
+public class Login extends javax.swing.JFrame {
 
     /**
      * Creates new form Main
      */
-    public Main() {
+    public Login() {
         initComponents();
     }
+    
+    public static class User{
+        String id;
+        String name;
+        String location;
+        String email;
+        String role;
+    }
+        
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -143,22 +153,28 @@ public class Main extends javax.swing.JFrame {
     private void jButton1_Sign_inActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_Sign_inActionPerformed
         String nam=jTextField1_Name.getText();
         String pass=jTextField2_Password.getText();
-        
+        User info=new User();
         
         Connection con=null;
         try{
              Class.forName("com.mysql.jdbc.Driver");
         con= DriverManager.getConnection("jdbc:mysql://localhost:3306/softproj","root","");
-        String sq1 = "select * from members where Name='"+nam+"' and Pass='"+pass+"'";
+        String sq1 = "select * from user where username='"+nam+"' and password='"+pass+"'";
         Statement st = con.createStatement();
             ResultSet rs=st.executeQuery(sq1);
             if(rs.next()){
+                info.id=rs.getString(1);
+                info.name=rs.getString(2);
+                info.location=rs.getString(4);
+                info.email=rs.getString(5);
+                info.role=rs.getString(7);
+                
                 MainDesign f1 = new MainDesign();
                 f1.setVisible(true);
                 
                 this.setVisible(false);
             
-                f1.jLabel2_name.setText(pass);
+                f1.jLabel2_name.setText(info.name);
                
                
             }
@@ -206,20 +222,21 @@ public class Main extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Main().setVisible(true);
+                new Login().setVisible(true);
             }
         });
     }
