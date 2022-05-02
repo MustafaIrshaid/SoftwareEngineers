@@ -88,21 +88,12 @@ public class reply extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void replyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_replyActionPerformed
-       Connection con=null;
-       try{
-             Class.forName("com.mysql.jdbc.Driver");
-           con= DriverManager.getConnection("jdbc:mysql://localhost:3306/softproj","root","");
-            String sqlstr="insert into notifications (`sender_id`, `reciever_id`, `message`) values('"+Login.currentUser.getUserID()+"','"+getfeedbacks.usertoreply.getUserID()+"','"+replymsg.getText()+"')";
-               Statement st1 = con.createStatement();
-               st1.executeUpdate(sqlstr);
-           con.close();
-           dispose();
-           new getfeedbacks().setVisible(true);
+      Login.currentUser.sendNotification(getfeedbacks.usertoreply, replymsg.getText());
+      dispose();
+      new getfeedbacks().setVisible(true);
        
-       }
-       catch(Exception e){
-           JOptionPane.showMessageDialog(null,e);
-       }
+       
+       
       
     }//GEN-LAST:event_replyActionPerformed
 
