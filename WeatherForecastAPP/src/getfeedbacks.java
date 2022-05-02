@@ -1,4 +1,5 @@
 
+
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -21,7 +22,7 @@ public class getfeedbacks extends javax.swing.JFrame {
         initComponents();
         getFeedbacks();
     }
-
+public static User usertoreply;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -111,10 +112,11 @@ public class getfeedbacks extends javax.swing.JFrame {
         try{
             Class.forName("com.mysql.jdbc.Driver");
            con= DriverManager.getConnection("jdbc:mysql://localhost:3306/softproj","root","");
+           
          String getid = "select * from feedbacks";
            Statement st = con.createStatement();
            ResultSet rs=st.executeQuery(getid);
-           int id;
+           int id=0;
            float fbs;
            String name="";
            
@@ -128,12 +130,14 @@ public class getfeedbacks extends javax.swing.JFrame {
            ResultSet rs2=st2.executeQuery(getname);
              while(rs2.next()){
                  name=rs2.getString("username");
+                 
              }
               String tbData[]={Integer.toString(id),name,s};
                 
                 DefaultTableModel tbmode1=(DefaultTableModel)feedBacks.getModel();
                 tbmode1.addRow(tbData);
            }
+           
            
        
         }
@@ -144,7 +148,15 @@ public class getfeedbacks extends javax.swing.JFrame {
          
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        int row = feedBacks.getSelectedRow();
+        if(row==-1){
+            JOptionPane.showMessageDialog(null,"please choose some one to reply him");
+        }
+        else{
+                 dispose();
+                new reply().setVisible(true);
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void feedBacksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_feedBacksMouseClicked
@@ -154,6 +166,8 @@ public class getfeedbacks extends javax.swing.JFrame {
        tableData[0] = feedBacks.getModel().getValueAt(row, 0).toString();
        tableData[1] = feedBacks.getModel().getValueAt(row, 1).toString();
        tableData[2] = feedBacks.getModel().getValueAt(row, 2).toString();
+        
+            
        Connection con =null;
        try{
            Class.forName("com.mysql.jdbc.Driver");
@@ -165,6 +179,13 @@ public class getfeedbacks extends javax.swing.JFrame {
                data=rs.getString("decreption");
                jTextArea1.setText(data);
            }
+           String usersql="select * from user where user_id='"+Integer.parseInt(tableData[0])+"'";
+            Statement st2 = con.createStatement();
+           ResultSet rs2=st2.executeQuery(usersql);
+            while(rs2.next()){
+                usertoreply = new User(rs2.getInt(1),rs2.getString(2),"",rs2.getString(4),rs2.getString(5),rs2.getString(6),rs2.getString(7),rs2.getInt(8));
+                     
+            }
            
        }
        catch(Exception e){
