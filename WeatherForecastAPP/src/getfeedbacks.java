@@ -19,6 +19,7 @@ public class getfeedbacks extends javax.swing.JFrame {
      */
     public getfeedbacks() {
         initComponents();
+        getFeedbacks();
     }
 
     /**
@@ -43,18 +44,26 @@ public class getfeedbacks extends javax.swing.JFrame {
 
             },
             new String [] {
-                "username", "stars"
+                "user_id", "username", "stars"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        feedBacks.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                feedBacksMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(feedBacks);
+        if (feedBacks.getColumnModel().getColumnCount() > 0) {
+            feedBacks.getColumnModel().getColumn(1).setResizable(false);
+        }
 
         jButton1.setText("reply to uesr");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -106,21 +115,27 @@ public class getfeedbacks extends javax.swing.JFrame {
            Statement st = con.createStatement();
            ResultSet rs=st.executeQuery(getid);
            int id;
+           float fbs;
            String name="";
+           
            
            while(rs.next()){
              id=rs.getInt("user_id");
-             String getname = "select username from user where user_id='"+id+"'";
+             fbs=rs.getFloat("feedback_stars");
+             String s=Float.toString(fbs);
+             String getname = "select * from user where user_id='"+id+"'";
            Statement st2 = con.createStatement();
-           ResultSet rs2=st2.executeQuery(getid);
+           ResultSet rs2=st2.executeQuery(getname);
              while(rs2.next()){
                  name=rs2.getString("username");
              }
-           }
-        String tbData[]={};
+              String tbData[]={Integer.toString(id),name,s};
                 
                 DefaultTableModel tbmode1=(DefaultTableModel)feedBacks.getModel();
                 tbmode1.addRow(tbData);
+           }
+           
+       
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null,e);
@@ -131,6 +146,31 @@ public class getfeedbacks extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void feedBacksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_feedBacksMouseClicked
+        int row = feedBacks.getSelectedRow();
+        String []tableData=new String[4];
+       String data="";
+       tableData[0] = feedBacks.getModel().getValueAt(row, 0).toString();
+       tableData[1] = feedBacks.getModel().getValueAt(row, 1).toString();
+       tableData[2] = feedBacks.getModel().getValueAt(row, 2).toString();
+       Connection con =null;
+       try{
+           Class.forName("com.mysql.jdbc.Driver");
+           con= DriverManager.getConnection("jdbc:mysql://localhost:3306/softproj","root","");
+         String getid = "select * from feedbacks where user_id ='"+tableData[0]+"'";
+           Statement st = con.createStatement();
+           ResultSet rs=st.executeQuery(getid);
+           while(rs.next()){
+               data=rs.getString("decreption");
+               jTextArea1.setText(data);
+           }
+           
+       }
+       catch(Exception e){
+           JOptionPane.showMessageDialog(null,e);
+       }
+    }//GEN-LAST:event_feedBacksMouseClicked
 
     /**
      * @param args the command line arguments
