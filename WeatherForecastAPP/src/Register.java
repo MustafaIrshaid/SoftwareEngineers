@@ -178,13 +178,24 @@ public class Register extends javax.swing.JFrame {
         Connection con=null;
         
         try{
-             Class.forName("com.mysql.jdbc.Driver");
-        con= DriverManager.getConnection("jdbc:mysql://localhost:3306/softproj","root","");
-       String sqlstr="insert into user (`username`, `password`, `location` , `email`,`subscription`, `role`) values('"+nam+"','"+pass+"','"+loc+"','"+email+"','"+sub+"','user')";
-        Statement st = con.createStatement();        
-            st.executeUpdate(sqlstr);
+            Class.forName("com.mysql.jdbc.Driver");
+            con= DriverManager.getConnection("jdbc:mysql://localhost:3306/softproj","root","");
+            Statement st = con.createStatement();  
+            String sq1 = "select * from user where username='"+nam+"' or email='"+email+"'";
+            ResultSet rs=st.executeQuery(sq1);
+            if(!rs.next()){
+                if(email.length() > 0 && nam.length() > 0 && pass.length() > 0){
+                    String sqlstr="insert into user (`username`, `password`, `location` , `email`,`subscription`, `role`) values('"+nam+"','"+pass+"','"+loc+"','"+email+"','"+sub+"','user')";
+                    st.executeUpdate(sqlstr);
+                    JOptionPane.showMessageDialog(null, "done");
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "Please enter all of your informations");
+                }
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "Email or Username has been used already");
+            }
             con.close();
-            JOptionPane.showMessageDialog(null, "done");
         }
         
          catch(Exception e){

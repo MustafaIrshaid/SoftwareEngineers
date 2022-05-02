@@ -157,18 +157,21 @@ public class Login extends javax.swing.JFrame {
                 if(rs.getString(7).toLowerCase().equals("admin")) {
                     currentUser = new Admin(rs.getInt(1),rs.getString(2),"",rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getInt(8));
                     adminInterface ad=new adminInterface();
+                    ad.jLabel2_name.setText(rs.getString(2));
                     ad.setVisible(true);
                 }
                 else{
                     if(rs.getString(6).toLowerCase().equals("manager")){
                         currentUser = new Manager(rs.getInt(1),rs.getString(2),"",rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getInt(8));
                         managerInterface ma=new managerInterface();
+                        ma.jLabel2_name.setText(rs.getString(2));
                         ma.setVisible(true);
                     }
                     else{
                         if(rs.getInt(8) != 0){
                             currentUser = new Employee(rs.getInt(1),rs.getString(2),"",rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getInt(8));
                             userInterface em=new userInterface();
+                            em.jLabel2_name.setText(rs.getString(2));
                             em.setVisible(true);
                         }
                             else{
@@ -179,7 +182,7 @@ public class Login extends javax.swing.JFrame {
                         
                     }
                 }
-     
+                dispose();
             }
                 else{
                 JOptionPane.showMessageDialog(null, "Password is incorrect");
