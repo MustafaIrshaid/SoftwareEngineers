@@ -38,7 +38,7 @@ public class Admin extends User {
            }
            con.close();
        
-             JOptionPane.showMessageDialog(null, "done");
+             JOptionPane.showMessageDialog(null, "done!");
         }
         
          catch(Exception e){
