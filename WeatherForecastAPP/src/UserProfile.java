@@ -101,9 +101,9 @@ public class UserProfile extends javax.swing.JFrame {
                         .addGap(67, 128, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButton_sendRequest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1_sendNotification, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton1_sendNotification, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
+                            .addComponent(jButton_sendRequest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -159,7 +159,8 @@ public class UserProfile extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1_sendNotificationActionPerformed
 
     private void jButton_sendRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_sendRequestActionPerformed
-        // TODO add your handling code here:
+        Login.currentUser.sendRequest(profileUser);
+        dispose();
     }//GEN-LAST:event_jButton_sendRequestActionPerformed
 
     private void jLabel_editIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_editIconMouseClicked

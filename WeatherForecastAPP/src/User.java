@@ -110,6 +110,14 @@ public class User {
         new UserProfile(this).setVisible(true);
     }
     
+    public void showNotifications(){
+        
+    }
+    
+    public void showRequests(){
+        
+    }
+    
     public void removeManager(){ 
     }
     
@@ -122,6 +130,8 @@ public class User {
     public void notifyUsers(String msg){
     }
     
+    public void sendRequest(User reciever){
+    }
 //    public void suggestChanges(){
 //    }
 }
