@@ -170,15 +170,14 @@ public class Login extends javax.swing.JFrame {
                     else{
                         if(rs.getInt(8) != 0){
                             currentUser = new Employee(rs.getInt(1),rs.getString(2),"",rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getInt(8));
-                            userInterface em=new userInterface();
-                            em.jLabel2_name.setText(rs.getString(2));
-                            em.setVisible(true);
+                            System.out.println("TEST EMP.");
                         }
-                            else{
+                        else{
                             currentUser = new User(rs.getInt(1),rs.getString(2),"",rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getInt(8));
-                                    }
+                        }
                         userInterface us=new userInterface();
-                            us.setVisible(true);
+                        us.jLabel2_name.setText(rs.getString(2));
+                        us.setVisible(true);
                         
                     }
                 }

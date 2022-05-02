@@ -188,6 +188,8 @@ public class Register extends javax.swing.JFrame {
                     String sqlstr="insert into user (`username`, `password`, `location` , `email`,`subscription`, `role`) values('"+nam+"','"+pass+"','"+loc+"','"+email+"','"+sub+"','user')";
                     st.executeUpdate(sqlstr);
                     JOptionPane.showMessageDialog(null, "done");
+                    new Login().setVisible(true);
+                    dispose();
                 } else {
                     JOptionPane.showMessageDialog(rootPane, "Please enter all of your informations");
                 }
