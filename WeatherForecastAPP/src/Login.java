@@ -207,7 +207,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1_Sign_inMouseClicked
 
     private void jLabel5_Sign_UpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5_Sign_UpMouseClicked
-        Register reg=new Register();
+        SignUp reg=new SignUp();
         reg.setVisible(true);
         this.setVisible(false);
         
