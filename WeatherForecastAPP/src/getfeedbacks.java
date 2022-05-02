@@ -102,7 +102,7 @@ public class getfeedbacks extends javax.swing.JFrame {
         try{
             Class.forName("com.mysql.jdbc.Driver");
            con= DriverManager.getConnection("jdbc:mysql://localhost:3306/softproj","root","");
-         String getid = "select * from notifications";
+         String getid = "select * from feedbacks";
            Statement st = con.createStatement();
            ResultSet rs=st.executeQuery(getid);
            int id;
