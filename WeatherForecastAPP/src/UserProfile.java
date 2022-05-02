@@ -12,9 +12,32 @@ public class UserProfile extends javax.swing.JFrame {
 
     /**
      * Creates new form UserProfile
+     * @param pageUser
      */
+    
+    public UserProfile(User pageUser) {
+        initComponents();
+        this.profileUser = pageUser;
+        this.userName.setText(pageUser.getUsername());
+        this.location.setText(pageUser.getLocation());
+        this.setDefaultCloseOperation(UserProfile.HIDE_ON_CLOSE);
+        if(Login.currentUser.getUserID() == pageUser.getUserID()){
+            this.jLabel_editIcon.setVisible(true);
+            this.jButton1_sendNotification.setVisible(false);
+            this.jButton_sendRequest.setVisible(false);
+        } else {
+            this.jLabel_editIcon.setVisible(false);
+            this.jButton1_sendNotification.setVisible(true);
+            if(Login.currentUser.getSubscription().toLowerCase().equals("manager"))
+                this.jButton_sendRequest.setVisible(true);
+            else
+                this.jButton_sendRequest.setVisible(false);
+        }
+    }
+    
     public UserProfile() {
         initComponents();
+        this.setDefaultCloseOperation(UserProfile.HIDE_ON_CLOSE);
     }
 
     /**
@@ -26,21 +49,127 @@ public class UserProfile extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        userImg = new javax.swing.JLabel();
+        userName = new javax.swing.JLabel();
+        location = new javax.swing.JLabel();
+        jButton1_sendNotification = new javax.swing.JButton();
+        jButton_sendRequest = new javax.swing.JButton();
+        jLabel_editIcon = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        userImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/anonymous-user-icon-2.jpg"))); // NOI18N
+        userImg.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(255, 0, 0), new java.awt.Color(0, 153, 153)));
+
+        userName.setForeground(new java.awt.Color(255, 0, 0));
+        userName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        userName.setText("Name");
+        userName.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        location.setForeground(new java.awt.Color(255, 0, 0));
+        location.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        location.setText("Location");
+        location.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jButton1_sendNotification.setText("Send Notification");
+        jButton1_sendNotification.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1_sendNotificationActionPerformed(evt);
+            }
+        });
+
+        jButton_sendRequest.setText("Send Request");
+        jButton_sendRequest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_sendRequestActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(159, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(userImg, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(userName, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(location, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(67, 128, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButton1_sendNotification)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButton_sendRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(userName, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(userImg, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(location, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1_sendNotification, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton_sendRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        jLabel_editIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/editIcon.png"))); // NOI18N
+        jLabel_editIcon.setText("jLabel1");
+        jLabel_editIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_editIconMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel_editIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel_editIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1_sendNotificationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_sendNotificationActionPerformed
+        
+    }//GEN-LAST:event_jButton1_sendNotificationActionPerformed
+
+    private void jButton_sendRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_sendRequestActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_sendRequestActionPerformed
+
+    private void jLabel_editIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_editIconMouseClicked
+        ProfileSettings ps=new ProfileSettings();
+        ps.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jLabel_editIconMouseClicked
 
     /**
      * @param args the command line arguments
@@ -77,6 +206,16 @@ public class UserProfile extends javax.swing.JFrame {
         });
     }
 
+    // Custom declaration
+    private User profileUser;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1_sendNotification;
+    private javax.swing.JButton jButton_sendRequest;
+    private javax.swing.JLabel jLabel_editIcon;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel location;
+    private javax.swing.JLabel userImg;
+    private javax.swing.JLabel userName;
     // End of variables declaration//GEN-END:variables
 }

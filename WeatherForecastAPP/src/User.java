@@ -85,7 +85,7 @@ public class User {
     }
     
     public void showProfile(){
-        
+        new UserProfile(this).setVisible(true);
     }
     
     public void removeManager(){ 

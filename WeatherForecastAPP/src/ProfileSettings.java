@@ -21,6 +21,7 @@ public class ProfileSettings extends javax.swing.JFrame {
      */
     public ProfileSettings() {
         initComponents();
+        this.setDefaultCloseOperation(ProfileSettings.HIDE_ON_CLOSE);
     }
 
     /**
