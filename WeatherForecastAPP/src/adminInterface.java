@@ -85,6 +85,11 @@ public class adminInterface extends javax.swing.JFrame {
         });
 
         jButton3_GetFeedBack.setText("Get Feed Back");
+        jButton3_GetFeedBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3_GetFeedBackActionPerformed(evt);
+            }
+        });
 
         jButton4_NotifyUsers.setText("Notify All Users");
         jButton4_NotifyUsers.addActionListener(new java.awt.event.ActionListener() {
@@ -208,6 +213,10 @@ public class adminInterface extends javax.swing.JFrame {
     private void jButton4_NotifyUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4_NotifyUsersActionPerformed
         new createNot().setVisible(true);
     }//GEN-LAST:event_jButton4_NotifyUsersActionPerformed
+
+    private void jButton3_GetFeedBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3_GetFeedBackActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3_GetFeedBackActionPerformed
 
     /**
      * @param args the command line arguments
