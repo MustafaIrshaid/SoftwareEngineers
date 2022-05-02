@@ -211,11 +211,13 @@ public class adminInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel1_LogoutMouseClicked
 
     private void jButton4_NotifyUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4_NotifyUsersActionPerformed
+       dispose();
         new createNot().setVisible(true);
     }//GEN-LAST:event_jButton4_NotifyUsersActionPerformed
 
     private void jButton3_GetFeedBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3_GetFeedBackActionPerformed
-        // TODO add your handling code here:
+         dispose();
+        new getfeedbacks().setVisible(true);
     }//GEN-LAST:event_jButton3_GetFeedBackActionPerformed
 
     /**
