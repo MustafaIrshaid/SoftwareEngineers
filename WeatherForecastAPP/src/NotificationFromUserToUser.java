@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -138,7 +141,13 @@ public class NotificationFromUserToUser extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1_SendNotificationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_SendNotificationActionPerformed
-        // TODO add your handling code here:
+        String msg = this.jTextArea1.getText();
+        if(!msg.isEmpty()){
+            Login.currentUser.sendNotification(this.reciever, msg);
+            dispose();
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Please enter message before you submit!");
+        }
     }//GEN-LAST:event_jButton1_SendNotificationActionPerformed
 
     /**
