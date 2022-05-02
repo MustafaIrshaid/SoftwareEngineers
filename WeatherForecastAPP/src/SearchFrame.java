@@ -1,5 +1,7 @@
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import javax.swing.table.DefaultTableModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -73,6 +75,11 @@ public class SearchFrame extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -122,15 +129,26 @@ public class SearchFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1_searchUserActionPerformed
 
     private void jTextField1_searchUserKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1_searchUserKeyReleased
-        ArrayList<User> users = new ArrayList<>();
         users = Search.searchUser(jTextField1_searchUser.getText());
-        if(users.size() != 0){
-            this.jTable1.removeAll();
+        DefaultTableModel model = (DefaultTableModel)this.jTable1.getModel();
+            int rowCount = model.getRowCount();
+            for(int i= rowCount - 1 ; i >= 0 ; i--){
+                model.removeRow(i);
+        }
+        if(!users.isEmpty() && jTextField1_searchUser.getText().length() > 0){
             
+            for(int i=0 ; i<users.size() ; i++){
+                String usersConvertor[] = {users.get(i).getUsername(), users.get(i).getLocation()};
+                model.addRow(usersConvertor);
+            }
         } else {
-            this.jTable1.setVisible(false);
+            
         }
     }//GEN-LAST:event_jTextField1_searchUserKeyReleased
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        users.get(this.jTable1.getSelectedRow()).showProfile();
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -167,6 +185,10 @@ public class SearchFrame extends javax.swing.JFrame {
         });
     }
 
+    //Custom decleration
+    
+    ArrayList<User> users = new ArrayList<>();
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
