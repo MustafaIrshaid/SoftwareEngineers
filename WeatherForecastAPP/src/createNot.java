@@ -81,18 +81,10 @@ static int admin_id;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-   
-    String message="";
-    message=jTextArea1.getText();
-    Login.currentUser.notifyUsers(message);
-
-       dispose();
-       test.text=message;
-       test hpg=new test();
-               
-              
-          hpg.show();
-       
+        String message="";
+        message=jTextArea1.getText();
+        Login.currentUser.notifyUsers(message);
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

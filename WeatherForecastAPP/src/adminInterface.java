@@ -87,6 +87,11 @@ public class adminInterface extends javax.swing.JFrame {
         jButton3_GetFeedBack.setText("Get Feed Back");
 
         jButton4_NotifyUsers.setText("Notify All Users");
+        jButton4_NotifyUsers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4_NotifyUsersActionPerformed(evt);
+            }
+        });
 
         jLabel1_Logout.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1_Logout.setForeground(new java.awt.Color(255, 0, 0));
@@ -199,6 +204,10 @@ public class adminInterface extends javax.swing.JFrame {
         new Login().setVisible(true);
         dispose();
     }//GEN-LAST:event_jLabel1_LogoutMouseClicked
+
+    private void jButton4_NotifyUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4_NotifyUsersActionPerformed
+        new createNot().setVisible(true);
+    }//GEN-LAST:event_jButton4_NotifyUsersActionPerformed
 
     /**
      * @param args the command line arguments
