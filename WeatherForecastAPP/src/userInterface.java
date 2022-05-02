@@ -193,7 +193,7 @@ public class userInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1_WeatherInfoActionPerformed
 
     private void jButton3_SearchForUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3_SearchForUsersActionPerformed
-        // TODO add your handling code here:
+        new SearchFrame().setVisible(true);
     }//GEN-LAST:event_jButton3_SearchForUsersActionPerformed
 
     private void jLabel1_SettingsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1_SettingsMouseClicked
