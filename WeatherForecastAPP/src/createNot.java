@@ -54,7 +54,7 @@ static int admin_id;
             }
         });
 
-        backword.setIcon(new javax.swing.ImageIcon("C:\\Users\\mohammad\\Documents\\GitHub\\SoftwareEngineers\\SoftwareEngineers\\WeatherForecastAPP\\icons\\icons8-backwards-32.png")); // NOI18N
+        backword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-backwards-32.png"))); // NOI18N
         backword.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 backwordMouseClicked(evt);

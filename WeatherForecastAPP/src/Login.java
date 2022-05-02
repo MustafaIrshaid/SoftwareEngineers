@@ -95,9 +95,10 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addComponent(jTextField1_Name, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
                         .addComponent(jLabel1))
-                    .addComponent(jLabel4_ForgetPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4_ForgetPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5_Sign_Up)))
                 .addContainerGap(75, Short.MAX_VALUE))
@@ -113,8 +114,8 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField2_Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jLabel4_ForgetPassword)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4_ForgetPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1_Sign_in)
                 .addGap(18, 18, 18)
@@ -196,7 +197,9 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1_Sign_inActionPerformed
 
     private void jLabel4_ForgetPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4_ForgetPasswordMouseClicked
-        // TODO add your handling code here:
+        ForgetPassword fp=new ForgetPassword();
+        fp.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jLabel4_ForgetPasswordMouseClicked
 
     private void jButton1_Sign_inMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1_Sign_inMouseClicked

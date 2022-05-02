@@ -91,7 +91,7 @@
     <Component class="javax.swing.JLabel" name="backword">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\mohammad\Documents\GitHub\SoftwareEngineers\SoftwareEngineers\WeatherForecastAPP\icons\icons8-backwards-32.png"/>
+          <Image iconType="3" name="/icons8-backwards-32.png"/>
         </Property>
       </Properties>
       <Events>
