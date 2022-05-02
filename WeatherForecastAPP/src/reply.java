@@ -1,3 +1,8 @@
+
+
+import java.sql.*;
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -14,9 +19,11 @@ public class reply extends javax.swing.JFrame {
      */
     public reply() {
         initComponents();
+        
         String name_to_r= jLabel1.getText();
         name_to_r+=getfeedbacks.usertoreply.getUsername();
         jLabel1.setText(name_to_r);
+         
     }
 
     /**
@@ -29,15 +36,15 @@ public class reply extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        replymsg = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         reply = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        replymsg.setColumns(20);
+        replymsg.setRows(5);
+        jScrollPane1.setViewportView(replymsg);
 
         jLabel1.setText("reply to ");
 
@@ -81,7 +88,22 @@ public class reply extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void replyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_replyActionPerformed
-        // TODO add your handling code here:
+       Connection con=null;
+       try{
+             Class.forName("com.mysql.jdbc.Driver");
+           con= DriverManager.getConnection("jdbc:mysql://localhost:3306/softproj","root","");
+            String sqlstr="insert into notifications (`sender_id`, `reciever_id`, `message`) values('"+Login.currentUser.getUserID()+"','"+getfeedbacks.usertoreply.getUserID()+"','"+replymsg.getText()+"')";
+               Statement st1 = con.createStatement();
+               st1.executeUpdate(sqlstr);
+           con.close();
+           dispose();
+           new getfeedbacks().setVisible(true);
+       
+       }
+       catch(Exception e){
+           JOptionPane.showMessageDialog(null,e);
+       }
+      
     }//GEN-LAST:event_replyActionPerformed
 
     /**
@@ -122,7 +144,7 @@ public class reply extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton reply;
+    private javax.swing.JTextArea replymsg;
     // End of variables declaration//GEN-END:variables
 }
