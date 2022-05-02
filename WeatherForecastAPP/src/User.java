@@ -84,6 +84,10 @@ public class User {
         this.managerID = managerID;
     }
     
+    public void sendNotification(){
+        
+    }
+    
     public void showProfile(){
         new UserProfile(this).setVisible(true);
     }
