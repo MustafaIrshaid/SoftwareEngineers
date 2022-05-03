@@ -102,7 +102,7 @@ public class ProfileSettings extends javax.swing.JFrame {
         
         
         
-        
+        dispose();
     }//GEN-LAST:event_jButton1_ConfirmActionPerformed
 
     /**

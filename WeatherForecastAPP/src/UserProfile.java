@@ -20,7 +20,7 @@ public class UserProfile extends javax.swing.JFrame {
         this.profileUser = pageUser;
         this.userName.setText(pageUser.getUsername());
         this.location.setText(pageUser.getLocation());
-        if(pageUser.getimg().equals("null")){
+        if(pageUser.getimg() == null){
             userImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/anonymous-user-icon-2.jpg")));
         }
         else {userImg.setIcon(new javax.swing.ImageIcon(getClass().getResource(pageUser.getimg())));}
@@ -63,6 +63,7 @@ public class UserProfile extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        userImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         userImg.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(255, 0, 0), new java.awt.Color(0, 153, 153)));
 
         userName.setForeground(new java.awt.Color(255, 0, 0));
