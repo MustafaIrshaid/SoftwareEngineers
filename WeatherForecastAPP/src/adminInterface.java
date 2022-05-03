@@ -56,6 +56,7 @@ public class adminInterface extends javax.swing.JFrame {
             }
         });
 
+        jLabel2_name.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2_name.setForeground(new java.awt.Color(255, 0, 51));
         jLabel2_name.setText("Name");
         jLabel2_name.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -129,7 +130,7 @@ public class adminInterface extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1_Welcome)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel2_name)
+                                .addComponent(jLabel2_name, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel2_Notify1)
                                 .addGap(18, 18, 18)
@@ -190,7 +191,7 @@ public class adminInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3_SearchForUsersActionPerformed
 
     private void jLabel2_nameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2_nameMouseClicked
-        // TODO add your handling code here:
+        Login.currentUser.showProfile();
     }//GEN-LAST:event_jLabel2_nameMouseClicked
 
     private void jButton4_NotifyUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4_NotifyUsersActionPerformed

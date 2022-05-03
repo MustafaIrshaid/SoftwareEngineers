@@ -176,7 +176,7 @@ public class userInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4_addFeedBackActionPerformed
 
     private void jLabel2_nameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2_nameMouseClicked
-        // TODO add your handling code here:
+        Login.currentUser.showProfile();
     }//GEN-LAST:event_jLabel2_nameMouseClicked
 
     private void jLabel2_NotifyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2_NotifyMouseClicked

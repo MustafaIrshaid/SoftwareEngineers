@@ -188,7 +188,7 @@ public class managerInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3_SearchForUsersActionPerformed
 
     private void jLabel2_nameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2_nameMouseClicked
-        // TODO add your handling code here:
+        Login.currentUser.showProfile();
     }//GEN-LAST:event_jLabel2_nameMouseClicked
 
     private void jLabel1_Logout1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1_Logout1MouseClicked
