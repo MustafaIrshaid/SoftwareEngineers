@@ -20,6 +20,7 @@ public class getfeedbacks extends javax.swing.JFrame {
      */
     public getfeedbacks() {
         initComponents();
+        setLocationRelativeTo(this);
         getFeedbacks();
         this.setDefaultCloseOperation(getfeedbacks.HIDE_ON_CLOSE);
     }

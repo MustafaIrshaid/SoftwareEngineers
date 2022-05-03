@@ -20,6 +20,7 @@ public class SearchFrame extends javax.swing.JFrame {
      */
     public SearchFrame() {
         initComponents();
+        setLocationRelativeTo(this);
         this.setDefaultCloseOperation(SearchFrame.HIDE_ON_CLOSE);
     }
 

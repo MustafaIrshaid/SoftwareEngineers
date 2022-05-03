@@ -41,6 +41,7 @@ public class UserProfile extends javax.swing.JFrame {
     
     public UserProfile() {
         initComponents();
+        setLocationRelativeTo(this);
         this.setDefaultCloseOperation(UserProfile.HIDE_ON_CLOSE);
     }
 

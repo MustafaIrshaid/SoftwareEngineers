@@ -19,7 +19,7 @@ public class reply extends javax.swing.JFrame {
      */
     public reply() {
         initComponents();
-        
+        setLocationRelativeTo(this);
         String name_to_r= jLabel1.getText();
         name_to_r+=getfeedbacks.usertoreply.getUsername();
         jLabel1.setText(name_to_r);

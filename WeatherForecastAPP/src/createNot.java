@@ -22,6 +22,7 @@ static int admin_id;
      */
     public createNot() {
         initComponents();
+        setLocationRelativeTo(this);
     }
 
     /**
