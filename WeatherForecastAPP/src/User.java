@@ -92,18 +92,7 @@ public class User {
     }
     
     public void sendNotification(User reciever, String message){
-        Connection con=null;
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            con= DriverManager.getConnection("jdbc:mysql://localhost:3306/softproj","root","");
-            Statement st = con.createStatement();
-            String sqlstr="insert into notifications (`sender_id`, `reciever_id`, `message`) values('"+Login.currentUser.getUserID()+"','"+reciever.getUserID()+"','"+message+"')";
-            st.executeUpdate(sqlstr);
-            con.close();
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null, e);
-        }
+        Notifications.addNotificatio(this, reciever, message);
     }
     
     public void showProfile(){
