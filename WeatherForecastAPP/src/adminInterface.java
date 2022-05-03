@@ -205,7 +205,7 @@ public class adminInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3_GetFeedBackActionPerformed
 
     private void jLabel2_Notify1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2_Notify1MouseClicked
-        // TODO add your handling code here:
+        new NotificationsFrame(Login.currentUser).setVisible(true);
     }//GEN-LAST:event_jLabel2_Notify1MouseClicked
 
     private void jLabel3_Requests1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3_Requests1MouseClicked

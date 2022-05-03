@@ -25,10 +25,11 @@ public class Search {
         con= DriverManager.getConnection("jdbc:mysql://localhost:3306/softproj","root","");
         String sq1 = "select * from user where username LIKE '%"+name+"%'";
         Statement st = con.createStatement();
-            ResultSet rs=st.executeQuery(sq1);
-            while(rs.next()){
-                matchedUsers.add(new User(rs.getInt(1),rs.getString(2),"",rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getInt(8),rs.getString(9)));
-            }  
+        ResultSet rs=st.executeQuery(sq1);
+        while(rs.next()){
+            matchedUsers.add(new User(rs.getInt(1),rs.getString(2),"",rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getInt(8),rs.getString(9)));
+        }  
+        con.close();
         }
         
         catch(Exception e){

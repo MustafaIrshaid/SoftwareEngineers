@@ -28,6 +28,8 @@ public class userInterface extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton2 = new javax.swing.JButton();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jLabel1_Welcome = new javax.swing.JLabel();
         jLabel2_Notify = new javax.swing.JLabel();
@@ -40,6 +42,9 @@ public class userInterface extends javax.swing.JFrame {
         jLabel1_Logout = new javax.swing.JLabel();
 
         jButton2.setText("jButton2");
+
+        jMenuItem1.setText("jMenuItem1");
+        jPopupMenu1.add(jMenuItem1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -180,7 +185,7 @@ public class userInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel2_nameMouseClicked
 
     private void jLabel2_NotifyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2_NotifyMouseClicked
-        // TODO add your handling code here:
+        new NotificationsFrame(Login.currentUser).setVisible(true);
     }//GEN-LAST:event_jLabel2_NotifyMouseClicked
 
     private void jLabel3_RequestsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3_RequestsMouseClicked
@@ -255,6 +260,8 @@ public class userInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2_Notify;
     public javax.swing.JLabel jLabel2_name;
     private javax.swing.JLabel jLabel3_Requests;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPopupMenu jPopupMenu1;
     // End of variables declaration//GEN-END:variables
 }
