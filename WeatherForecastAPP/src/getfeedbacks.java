@@ -202,7 +202,7 @@ public static User usertoreply;
             Statement st2 = con.createStatement();
            ResultSet rs2=st2.executeQuery(usersql);
             while(rs2.next()){
-                usertoreply = new User(rs2.getInt(1),rs2.getString(2),"",rs2.getString(4),rs2.getString(5),rs2.getString(6),rs2.getString(7),rs2.getInt(8));
+                usertoreply = new User(rs2.getInt(1),rs2.getString(2),"",rs2.getString(4),rs2.getString(5),rs2.getString(6),rs2.getString(7),rs2.getInt(8),rs2.getString(9));
                      
             }
            

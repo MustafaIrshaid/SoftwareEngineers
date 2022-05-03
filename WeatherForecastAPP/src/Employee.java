@@ -9,8 +9,8 @@
  * @author ameed
  */
 public class Employee extends User {
-    public Employee(int userID, String username, String password, String location, String email, String Subscription, String role, int managerID){
-        super(userID, username, password, location, email, Subscription, role, managerID);
+    public Employee(int userID, String username, String password, String location, String email, String Subscription, String role, int managerID , String img){
+        super(userID, username, password, location, email, Subscription, role, managerID, img);
     }
     
     @Override

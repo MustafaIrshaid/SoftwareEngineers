@@ -24,11 +24,12 @@ public class User {
     private String subscription;
     private String role;
     private int managerID;
+    private String img;
 
     public User(){
         
     }
-    public User(int userID, String username, String password, String location, String email, String Subscription, String role, int managerID){
+    public User(int userID, String username, String password, String location, String email, String Subscription, String role, int managerID , String img){
         this.userID = userID;
         this.email = email;
         this.location = location;
@@ -37,6 +38,7 @@ public class User {
         this.role = role;
         this.subscription = Subscription;
         this.username = username;
+        this.img=img;
     }
     
     public int getUserID() {
@@ -50,6 +52,7 @@ public class User {
     public void setUsername(String username) {
         this.username = username;
     }
+    
 
     public String getPassword() {
         return password;
@@ -89,6 +92,15 @@ public class User {
 
     public void setManagerID(int managerID) {
         this.managerID = managerID;
+    }
+    
+    
+    public String getimg() {
+        return img;
+    }
+
+    public void setimg(String img) {
+        this.img = img;
     }
     
     public void sendNotification(User reciever, String message){
