@@ -21,6 +21,7 @@ public class ProfileSettings extends javax.swing.JFrame {
      */
     public ProfileSettings() {
         initComponents();
+        setLocationRelativeTo(this);
         this.setDefaultCloseOperation(ProfileSettings.HIDE_ON_CLOSE);
     }
 
@@ -102,7 +103,7 @@ public class ProfileSettings extends javax.swing.JFrame {
         
         
         
-        
+        dispose();
     }//GEN-LAST:event_jButton1_ConfirmActionPerformed
 
     /**

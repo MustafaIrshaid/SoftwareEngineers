@@ -24,11 +24,12 @@ public class User {
     private String subscription;
     private String role;
     private int managerID;
+    private String img;
 
     public User(){
         
     }
-    public User(int userID, String username, String password, String location, String email, String Subscription, String role, int managerID){
+    public User(int userID, String username, String password, String location, String email, String Subscription, String role, int managerID , String img){
         this.userID = userID;
         this.email = email;
         this.location = location;
@@ -37,6 +38,7 @@ public class User {
         this.role = role;
         this.subscription = Subscription;
         this.username = username;
+        this.img=img;
     }
     
     public int getUserID() {
@@ -50,6 +52,7 @@ public class User {
     public void setUsername(String username) {
         this.username = username;
     }
+    
 
     public String getPassword() {
         return password;
@@ -91,19 +94,17 @@ public class User {
         this.managerID = managerID;
     }
     
+    
+    public String getimg() {
+        return img;
+    }
+
+    public void setimg(String img) {
+        this.img = img;
+    }
+    
     public void sendNotification(User reciever, String message){
-        Connection con=null;
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            con= DriverManager.getConnection("jdbc:mysql://localhost:3306/softproj","root","");
-            Statement st = con.createStatement();
-            String sqlstr="insert into notifications (`sender_id`, `reciever_id`, `message`) values('"+Login.currentUser.getUserID()+"','"+reciever.getUserID()+"','"+message+"')";
-            st.executeUpdate(sqlstr);
-            con.close();
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null, e);
-        }
+        Notifications.addNotificatio(this, reciever, message);
     }
     
     public void showProfile(){

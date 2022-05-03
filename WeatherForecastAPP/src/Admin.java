@@ -16,8 +16,8 @@ import javax.swing.JOptionPane;
  * @author ameed
  */
 public class Admin extends User {
-    public Admin(int userID, String username, String password, String location, String email, String Subscription, String role, int managerID){
-        super(userID, username, password, location, email, Subscription, role, managerID);
+    public Admin(int userID, String username, String password, String location, String email, String Subscription, String role, int managerID , String img){
+        super(userID, username, password, location, email, Subscription, role, managerID , img);
     }
     
     @Override
@@ -38,7 +38,7 @@ public class Admin extends User {
            }
            con.close();
        
-             JOptionPane.showMessageDialog(null, "done");
+             JOptionPane.showMessageDialog(null, "done!");
         }
         
          catch(Exception e){

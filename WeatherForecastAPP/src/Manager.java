@@ -15,8 +15,8 @@ import javax.swing.JOptionPane;
  * @author ameed
  */
 public class Manager extends User{
-    public Manager(int userID, String username, String password, String location, String email, String Subscription, String role, int managerID){
-        super(userID, username, password, location, email, Subscription, role, managerID);
+    public Manager(int userID, String username, String password, String location, String email, String Subscription, String role, int managerID,String img){
+        super(userID, username, password, location, email, Subscription, role, managerID, img);
     }
     
     @Override

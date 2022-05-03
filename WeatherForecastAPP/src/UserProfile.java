@@ -20,6 +20,10 @@ public class UserProfile extends javax.swing.JFrame {
         this.profileUser = pageUser;
         this.userName.setText(pageUser.getUsername());
         this.location.setText(pageUser.getLocation());
+        if(pageUser.getimg() == null){
+            userImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/anonymous-user-icon-2.jpg")));
+        }
+        else {userImg.setIcon(new javax.swing.ImageIcon(getClass().getResource(pageUser.getimg())));}
         this.setDefaultCloseOperation(UserProfile.HIDE_ON_CLOSE);
         if(Login.currentUser.getUserID() == pageUser.getUserID()){
             this.jLabel_editIcon.setVisible(true);
@@ -37,6 +41,7 @@ public class UserProfile extends javax.swing.JFrame {
     
     public UserProfile() {
         initComponents();
+        setLocationRelativeTo(this);
         this.setDefaultCloseOperation(UserProfile.HIDE_ON_CLOSE);
     }
 
@@ -59,7 +64,7 @@ public class UserProfile extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        userImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/anonymous-user-icon-2.jpg"))); // NOI18N
+        userImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         userImg.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(255, 0, 0), new java.awt.Color(0, 153, 153)));
 
         userName.setForeground(new java.awt.Color(255, 0, 0));
@@ -95,25 +100,28 @@ public class UserProfile extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(userImg, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(userName, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(location, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(67, 128, Short.MAX_VALUE))
+                        .addGap(122, 183, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButton1_sendNotification, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
                             .addComponent(jButton_sendRequest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(135, 135, 135)
+                .addComponent(userImg, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addComponent(userName, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(userImg, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(userImg, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
                 .addComponent(location, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1_sendNotification, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)

@@ -20,6 +20,7 @@ public class NotificationFromUserToUser extends javax.swing.JFrame {
     
     public NotificationFromUserToUser(User reciever) {
         initComponents();
+        setLocationRelativeTo(this);
         this.reciever = reciever;
         this.jLabel3_senderName.setText(Login.currentUser.getUsername());
         this.jLabel4_recieverName.setText(reciever.getUsername());

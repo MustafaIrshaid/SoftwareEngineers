@@ -15,6 +15,7 @@ public class Weather extends javax.swing.JFrame {
      */
     public Weather() {
         initComponents();
+        setLocationRelativeTo(this);
     }
 
     /**
