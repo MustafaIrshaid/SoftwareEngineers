@@ -147,7 +147,7 @@ public class SignUp extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel2_signin)))
                         .addContainerGap(61, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jComboBox1_location, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -223,7 +223,8 @@ public class SignUp extends javax.swing.JFrame {
         jRadioButton1_User.setActionCommand("user");
         jRadioButton2_Manager.setActionCommand("manager");
         String sub=buttonGroup1.getSelection().getActionCommand();
-        System.out.println(sub);
+       
+         
 
         Connection con=null;
 
@@ -264,12 +265,13 @@ public class SignUp extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JFileChooser chooser=new JFileChooser();
+        
          try{
                 chooser.showOpenDialog(null);
                 File f=chooser.getSelectedFile();
                 jLabel6.setIcon(new ImageIcon(f.toString()));
                 String picname=f.getName();
-                String filename1="ProfileImages\\\\"+picname;
+                String filename1="/ProfileImages/"+picname;
                 filename=filename1;
          }
          

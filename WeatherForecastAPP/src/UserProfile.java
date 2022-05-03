@@ -20,6 +20,10 @@ public class UserProfile extends javax.swing.JFrame {
         this.profileUser = pageUser;
         this.userName.setText(pageUser.getUsername());
         this.location.setText(pageUser.getLocation());
+        if(pageUser.getimg().equals("null")){
+            userImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/anonymous-user-icon-2.jpg")));
+        }
+        else {userImg.setIcon(new javax.swing.ImageIcon(getClass().getResource(pageUser.getimg())));}
         this.setDefaultCloseOperation(UserProfile.HIDE_ON_CLOSE);
         if(Login.currentUser.getUserID() == pageUser.getUserID()){
             this.jLabel_editIcon.setVisible(true);
