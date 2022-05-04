@@ -27,7 +27,7 @@ public class User {
     private String img;
 
     public User(){
-        
+        this.userID = -1;
     }
     public User(int userID, String username, String password, String location, String email, String Subscription, String role, int managerID , String img){
         this.userID = userID;
@@ -104,7 +104,7 @@ public class User {
     }
     
     public void sendNotification(User reciever, String message){
-        Notifications.addNotificatio(this, reciever, message);
+        Notifications.addNotification(this, reciever, message);
     }
     
     public void showProfile(){

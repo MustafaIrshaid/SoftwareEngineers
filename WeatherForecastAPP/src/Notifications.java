@@ -3,6 +3,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.Collections;
 import javax.swing.JOptionPane;
@@ -30,7 +31,7 @@ public class Notifications {
         this.senderName = senderName;
     }
     
-    public static void addNotificatio(User sender, User reciever, String message){
+    public static void addNotification(User sender, User reciever, String message){
         Connection con=null;
         try{
             Class.forName("com.mysql.jdbc.Driver");
@@ -51,6 +52,8 @@ public class Notifications {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/softproj","root","");
             Statement st = con.createStatement();
+            
+            //Notifications table to get all the notifications for this user, and user table to get the sender's name 
             String sqlstr="select * from notifications,user where reciever_id = '"+reciever.getUserID()+"'  and notifications.sender_id = user.user_id";
             ResultSet rs = st.executeQuery(sqlstr);
             while(rs.next()){
