@@ -27,7 +27,7 @@ public class User {
     private String img;
 
     public User(){
-        this.userID = -1;
+        this.userID = 0;
     }
     public User(int userID, String username, String password, String location, String email, String Subscription, String role, int managerID , String img){
         this.userID = userID;

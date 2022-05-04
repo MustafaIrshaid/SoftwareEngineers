@@ -86,6 +86,13 @@ public class Requests {
             //Update Requests table according to the user's response
             sqlstr="UPDATE `requsts` SET `req_status`='"+respond+"' WHERE r_id='"+req.getRID()+"'";
             st.executeUpdate(sqlstr);
+            
+            //Update User manager in the database according to his response
+            if(respond.equals("accepted")){
+                sqlstr="UPDATE `user` SET `manager_id`='"+req.getSenderID()+"' WHERE user_id='"+req.getRecieverID()+"'";
+                Login.currentUser.setManagerID(req.getSenderID());
+                st.executeUpdate(sqlstr);
+            }
             con.close();
         }
         catch(Exception e){

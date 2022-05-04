@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -72,6 +73,7 @@ public class RequestsFrame extends javax.swing.JFrame {
         jRadioButton1_acceptRequest = new javax.swing.JRadioButton();
         jRadioButton2_rejectRequest = new javax.swing.JRadioButton();
         jButton1_respondRequest = new javax.swing.JButton();
+        jLabel1_delete = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -201,6 +203,8 @@ public class RequestsFrame extends javax.swing.JFrame {
                     .addContainerGap(340, Short.MAX_VALUE)))
         );
 
+        jLabel1_delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/delete2.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -214,14 +218,20 @@ public class RequestsFrame extends javax.swing.JFrame {
             .addComponent(jPanel2_tablePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel3_specificRequest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jLabel1_delete, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(505, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1_back)
-                    .addComponent(jLabel1_name))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1_name))
+                    .addComponent(jLabel1_back, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(1, 1, 1)
                 .addComponent(jPanel2_tablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -230,6 +240,10 @@ public class RequestsFrame extends javax.swing.JFrame {
                     .addContainerGap(36, Short.MAX_VALUE)
                     .addComponent(jPanel3_specificRequest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(29, 29, 29)))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addComponent(jLabel1_delete, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 517, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -257,14 +271,23 @@ public class RequestsFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1_respondRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_respondRequestActionPerformed
-        this.jRadioButton1_acceptRequest.setActionCommand("accepted");
-        this.jRadioButton2_rejectRequest.setActionCommand("rejected");
-        String sub=buttonGroup1.getSelection().getActionCommand();
-        Requests.respondRequest(pressedRequest, sub);
+        User currentUser = Search.searchForUser(pressedRequest.getRecieverID(), "");
+        if(currentUser.getManagerID() == 0){
+            this.jRadioButton1_acceptRequest.setActionCommand("accepted");
+            this.jRadioButton2_rejectRequest.setActionCommand("rejected");
+            String sub=buttonGroup1.getSelection().getActionCommand();
+            Requests.respondRequest(pressedRequest, sub);
+            JOptionPane.showMessageDialog(rootPane, sub + " the request.");
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "You already have a manager, remove it first so you can accept this manager");
+        }
+        dispose();
     }//GEN-LAST:event_jButton1_respondRequestActionPerformed
 
     private void jTable1_allRequestsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1_allRequestsMouseClicked
         this.pressedRequest = this.userRequests.get(this.jTable1_allRequests.getSelectedRow());
+        String requestMsg = String.format("Do you accept %s to be your manager?", pressedRequest.getSenderName());
+        this.jTextField1.setText(requestMsg);
         this.jPanel2_tablePanel.setVisible(false);
         this.jPanel3_specificRequest.setVisible(true);
         this.jLabel1_back.setVisible(true);
@@ -314,6 +337,7 @@ public class RequestsFrame extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1_respondRequest;
     private javax.swing.JLabel jLabel1_back;
+    private javax.swing.JLabel jLabel1_delete;
     private javax.swing.JLabel jLabel1_name;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2_tablePanel;
