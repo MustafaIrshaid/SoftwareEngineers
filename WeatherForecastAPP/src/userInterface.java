@@ -189,7 +189,7 @@ public class userInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel2_NotifyMouseClicked
 
     private void jLabel3_RequestsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3_RequestsMouseClicked
-        // TODO add your handling code here:
+        new RequestsFrame(Login.currentUser, "Have requested you to join his employees.").setVisible(true);
     }//GEN-LAST:event_jLabel3_RequestsMouseClicked
 
     private void jButton1_WeatherInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_WeatherInfoActionPerformed

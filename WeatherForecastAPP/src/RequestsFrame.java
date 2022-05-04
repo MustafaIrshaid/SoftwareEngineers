@@ -135,8 +135,11 @@ public class RequestsFrame extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(jRadioButton1_acceptRequest);
+        jRadioButton1_acceptRequest.setSelected(true);
         jRadioButton1_acceptRequest.setText("Yes");
 
+        buttonGroup1.add(jRadioButton2_rejectRequest);
         jRadioButton2_rejectRequest.setText("No");
 
         jButton1_respondRequest.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -254,10 +257,14 @@ public class RequestsFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1_respondRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_respondRequestActionPerformed
-        
+        this.jRadioButton1_acceptRequest.setActionCommand("accepted");
+        this.jRadioButton2_rejectRequest.setActionCommand("rejected");
+        String sub=buttonGroup1.getSelection().getActionCommand();
+        Requests.respondRequest(pressedRequest, sub);
     }//GEN-LAST:event_jButton1_respondRequestActionPerformed
 
     private void jTable1_allRequestsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1_allRequestsMouseClicked
+        this.pressedRequest = this.userRequests.get(this.jTable1_allRequests.getSelectedRow());
         this.jPanel2_tablePanel.setVisible(false);
         this.jPanel3_specificRequest.setVisible(true);
         this.jLabel1_back.setVisible(true);
@@ -301,6 +308,7 @@ public class RequestsFrame extends javax.swing.JFrame {
     // Custom Declerations
     
     ArrayList<Requests> userRequests = new ArrayList<>();
+    Requests pressedRequest;
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;

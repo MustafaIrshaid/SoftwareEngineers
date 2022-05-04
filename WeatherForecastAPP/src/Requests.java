@@ -66,13 +66,12 @@ public class Requests {
         return temp;
     }
     
-    public static String respondRequestMessage(boolean respond, int recieverID){
+    public static String respondRequestMessage(String respond, int recieverID){
         String recieverName = Search.searchForUser(recieverID, "").getUsername();
-        if(respond) return String.format("User '%s' has accepted your request to join his employees.", recieverName);
-        return String.format("User '%s' has rejected your request to join his employees.", recieverName);
+        return String.format("%s has %s your request to join his employees.", recieverName, respond);
     }
     
-    public static void respondRequest(Requests req, boolean respond){
+    public static void respondRequest(Requests req, String respond){
         Connection con=null;
         try{
             Class.forName("com.mysql.jdbc.Driver");
@@ -83,11 +82,9 @@ public class Requests {
                                                                                                    +req.getSenderID()+"','"
                                                                                                    +Requests.respondRequestMessage(respond, req.recieverID)+ "')";
             st.executeUpdate(sqlstr);
-            if(respond){
-                sqlstr="UPDATE `requsts` SET `req_status`='accepted' WHERE reciever_id='"+req.getRecieverID()+"'";
-            } else {
-                sqlstr="UPDATE `requsts` SET `req_status`='rejected' WHERE reciever_id='"+req.getRecieverID()+"'";
-            }
+            
+            //Update Requests table according to the user's response
+            sqlstr="UPDATE `requsts` SET `req_status`='"+respond+"' WHERE r_id='"+req.getRID()+"'";
             st.executeUpdate(sqlstr);
             con.close();
         }
