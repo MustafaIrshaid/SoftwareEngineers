@@ -180,7 +180,8 @@ public class managerInterface extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1_WeatherInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_WeatherInfoActionPerformed
-        // TODO add your handling code here:
+        WeatherForecastMSG msg=new WeatherForecastMSG();
+        msg.setVisible(true);
     }//GEN-LAST:event_jButton1_WeatherInfoActionPerformed
 
     private void jButton3_SearchForUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3_SearchForUsersActionPerformed
