@@ -73,7 +73,6 @@ public class RequestsFrame extends javax.swing.JFrame {
         jRadioButton1_acceptRequest = new javax.swing.JRadioButton();
         jRadioButton2_rejectRequest = new javax.swing.JRadioButton();
         jButton1_respondRequest = new javax.swing.JButton();
-        jLabel1_delete = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -203,8 +202,6 @@ public class RequestsFrame extends javax.swing.JFrame {
                     .addContainerGap(340, Short.MAX_VALUE)))
         );
 
-        jLabel1_delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/delete2.png"))); // NOI18N
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -218,11 +215,6 @@ public class RequestsFrame extends javax.swing.JFrame {
             .addComponent(jPanel2_tablePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel3_specificRequest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel1_delete, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(505, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,10 +232,6 @@ public class RequestsFrame extends javax.swing.JFrame {
                     .addContainerGap(36, Short.MAX_VALUE)
                     .addComponent(jPanel3_specificRequest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(29, 29, 29)))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addComponent(jLabel1_delete, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 517, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -337,7 +325,6 @@ public class RequestsFrame extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1_respondRequest;
     private javax.swing.JLabel jLabel1_back;
-    private javax.swing.JLabel jLabel1_delete;
     private javax.swing.JLabel jLabel1_name;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2_tablePanel;

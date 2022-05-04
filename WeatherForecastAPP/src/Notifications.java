@@ -46,6 +46,20 @@ public class Notifications {
         }
     }
     
+    public static void deleteNotification(int NID){
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/softproj","root","");
+            Statement st = con.createStatement();
+            String sqlstr="DELETE FROM `notifications` WHERE n_id='"+NID+"'";
+            st.executeUpdate(sqlstr);
+            con.close();
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    
     public static ArrayList<Notifications> getNotifications(User reciever){
         ArrayList<Notifications> temp = new ArrayList<>();
         try{

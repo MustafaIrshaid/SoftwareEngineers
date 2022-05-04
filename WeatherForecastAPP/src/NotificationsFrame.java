@@ -23,6 +23,8 @@ public class NotificationsFrame extends javax.swing.JFrame {
         String header = this.jLabel1_name.getText();
         this.setResizable(true);
         this.jLabel1_back.setVisible(false);
+        this.jLabel1_delete.setVisible(false);
+        
         this.jLabel1_name.setText(header.replace("Name", reciever.getUsername()));
         userNotifications = Notifications.getNotifications(reciever);
         this.setDefaultCloseOperation(NotificationsFrame.HIDE_ON_CLOSE);
@@ -147,6 +149,11 @@ public class NotificationsFrame extends javax.swing.JFrame {
         });
 
         jLabel1_delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/delete2.png"))); // NOI18N
+        jLabel1_delete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1_deleteMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -208,18 +215,29 @@ public class NotificationsFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        String pressedNotification = userNotifications.get(this.jTable1.getSelectedRow()).getMessage();
+        this.selectedNotification = userNotifications.get(this.jTable1.getSelectedRow());
+        String pressedNotification = this.selectedNotification.getMessage();
         this.jTextArea1_specificNotification.setText(pressedNotification);
         this.jPanel2_tablePanel.setVisible(false);
         this.jPanel3_specificNotifications.setVisible(true);
         this.jLabel1_back.setVisible(true);
+        this.jLabel1_delete.setVisible(true);
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jLabel1_backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1_backMouseClicked
         this.jPanel2_tablePanel.setVisible(true);
         this.jPanel3_specificNotifications.setVisible(false);
+        this.jLabel1_delete.setVisible(false);
         this.jLabel1_back.setVisible(false);
     }//GEN-LAST:event_jLabel1_backMouseClicked
+
+    private void jLabel1_deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1_deleteMouseClicked
+        this.jPanel2_tablePanel.setVisible(true);
+        this.jPanel3_specificNotifications.setVisible(false);
+        this.jLabel1_back.setVisible(false);
+        Notifications.deleteNotification(this.selectedNotification.getNID());
+        dispose();
+    }//GEN-LAST:event_jLabel1_deleteMouseClicked
 
     /**
      * @param args the command line arguments
@@ -259,6 +277,7 @@ public class NotificationsFrame extends javax.swing.JFrame {
     // Custom Declerations
     
     ArrayList<Notifications> userNotifications = new ArrayList<>();
+    Notifications selectedNotification;
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1_back;

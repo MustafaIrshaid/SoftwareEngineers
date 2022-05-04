@@ -226,6 +226,9 @@
               <Image iconType="3" name="/icons/delete2.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel1_deleteMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
