@@ -25,7 +25,7 @@ public class UserProfile extends javax.swing.JFrame {
             userImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/anonymous-user-icon-2.jpg")));
         }
         else {userImg.setIcon(new javax.swing.ImageIcon(getClass().getResource(pageUser.getimg())));}
-        this.setDefaultCloseOperation(UserProfile.HIDE_ON_CLOSE);
+        this.setDefaultCloseOperation(javax.swing.JFrame.HIDE_ON_CLOSE);
         if(Login.currentUser.getUserID() == pageUser.getUserID()){
             this.jLabel_editIcon.setVisible(true);
             this.jButton1_sendNotification.setVisible(false);

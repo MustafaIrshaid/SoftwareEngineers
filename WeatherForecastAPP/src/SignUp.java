@@ -237,7 +237,13 @@ public class SignUp extends javax.swing.JFrame {
             ResultSet rs=st.executeQuery(sq1);
             if(!rs.next()){
                 if(email.length() > 0 && nam.length() > 0 && pass.length() > 0){
-                    String sqlstr="insert into user (`username`, `password`, `location` , `email`,`subscription`, `role`,`pic_url`) values('"+nam+"','"+pass+"','"+loc+"','"+email+"','"+sub+"','user','"+filename+"')";
+                    String sqlstr;
+                    if(filename == null){
+                        sqlstr="insert into user (`username`, `password`, `location` , `email`,`subscription`, `role`) values('"+nam+"','"+pass+"','"+loc+"','"+email+"','"+sub+"','user')";
+                    } else {
+                        sqlstr="insert into user (`username`, `password`, `location` , `email`,`subscription`, `role`,`pic_url`) values('"+nam+"','"+pass+"','"+loc+"','"+email+"','"+sub+"','user','"+filename+"')";
+                    }
+
                     st.executeUpdate(sqlstr);
                     JOptionPane.showMessageDialog(null, "done");
                     new Login().setVisible(true);
