@@ -1,3 +1,11 @@
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -17,6 +25,26 @@ public class EmployeesLocations extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
         this.setDefaultCloseOperation(EmployeesLocations.HIDE_ON_CLOSE);
+        
+        int manageID=Login.currentUser.getUserID();
+         DefaultTableModel model = (DefaultTableModel)this.jTable1.getModel();
+        Connection con=null;
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+           con= DriverManager.getConnection("jdbc:mysql://localhost:3306/softproj","root","");
+           
+         String getid = "select * from user where manager_id='"+manageID+"'";
+           Statement st = con.createStatement();
+           ResultSet rs=st.executeQuery(getid);
+           while(rs.next()){
+               model.insertRow(model.getRowCount(),new Object[]{rs.getString(2),rs.getString(4)});
+           }
+
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null,"hello word");
+            
+        }
     }
 
     /**
