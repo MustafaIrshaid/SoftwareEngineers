@@ -37,11 +37,16 @@ public class adminInterface extends javax.swing.JFrame {
         jLabel3_Requests1 = new javax.swing.JLabel();
         jLabel1_Logout1 = new javax.swing.JLabel();
         jLabel1_Settings1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel2_Notify2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel1_Welcome.setText("Welcome ,");
 
+        jButton1_WeatherInfo.setBackground(new java.awt.Color(255, 255, 255));
         jButton1_WeatherInfo.setText("Get Weather Information");
         jButton1_WeatherInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -49,6 +54,7 @@ public class adminInterface extends javax.swing.JFrame {
             }
         });
 
+        jButton3_SearchForUsers.setBackground(new java.awt.Color(255, 255, 255));
         jButton3_SearchForUsers.setText("Search For Users");
         jButton3_SearchForUsers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,7 +63,7 @@ public class adminInterface extends javax.swing.JFrame {
         });
 
         jLabel2_name.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel2_name.setForeground(new java.awt.Color(255, 0, 51));
+        jLabel2_name.setForeground(new java.awt.Color(231, 76, 60));
         jLabel2_name.setText("Name");
         jLabel2_name.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -65,6 +71,7 @@ public class adminInterface extends javax.swing.JFrame {
             }
         });
 
+        jButton3_GetFeedBack.setBackground(new java.awt.Color(255, 255, 255));
         jButton3_GetFeedBack.setText("Get Feed Back");
         jButton3_GetFeedBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,6 +79,7 @@ public class adminInterface extends javax.swing.JFrame {
             }
         });
 
+        jButton4_NotifyUsers.setBackground(new java.awt.Color(255, 255, 255));
         jButton4_NotifyUsers.setText("Notify All Users");
         jButton4_NotifyUsers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,6 +117,17 @@ public class adminInterface extends javax.swing.JFrame {
             }
         });
 
+        jLabel6.setFont(new java.awt.Font("Segoe Script", 1, 18)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Main Menu");
+
+        jLabel2_Notify2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-cloud-50Admin.png"))); // NOI18N
+        jLabel2_Notify2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2_Notify2MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -130,7 +149,7 @@ public class adminInterface extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1_Welcome)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel2_name, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel2_name, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel2_Notify1)
                                 .addGap(18, 18, 18)
@@ -141,6 +160,12 @@ public class adminInterface extends javax.swing.JFrame {
                                 .addComponent(jLabel1_Logout1)))
                         .addGap(18, 18, 18)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel2_Notify2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel6)
+                .addGap(192, 192, 192))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,7 +178,11 @@ public class adminInterface extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel2_Notify1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel3_Requests1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(56, 56, 56)
+                .addGap(3, 3, 3)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2_Notify2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addComponent(jButton1_WeatherInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton3_SearchForUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -161,7 +190,7 @@ public class adminInterface extends javax.swing.JFrame {
                 .addComponent(jButton3_GetFeedBack, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton4_NotifyUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1_Logout1)
                     .addComponent(jLabel1_Settings1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -226,6 +255,10 @@ public class adminInterface extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jLabel1_Settings1MouseClicked
 
+    private void jLabel2_Notify2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2_Notify2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel2_Notify2MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -271,8 +304,10 @@ public class adminInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1_Settings1;
     private javax.swing.JLabel jLabel1_Welcome;
     private javax.swing.JLabel jLabel2_Notify1;
+    private javax.swing.JLabel jLabel2_Notify2;
     public javax.swing.JLabel jLabel2_name;
     private javax.swing.JLabel jLabel3_Requests1;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
