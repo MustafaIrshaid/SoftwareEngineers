@@ -16,6 +16,7 @@ public class userInterface extends javax.swing.JFrame {
     public userInterface() {
         initComponents();
         setLocationRelativeTo(this);
+        this.jLabel2_name.setText(Login.currentUser.getUsername());
     }
 
     /**
@@ -209,6 +210,10 @@ public class userInterface extends javax.swing.JFrame {
 
     private void jButton4_addFeedBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4_addFeedBackActionPerformed
         // TODO add your handling code here:
+        
+        dispose();
+        new givefeedback().setVisible(true);
+        
     }//GEN-LAST:event_jButton4_addFeedBackActionPerformed
 
     private void jLabel2_nameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2_nameMouseClicked
