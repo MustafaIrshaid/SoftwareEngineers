@@ -54,11 +54,11 @@ public class WeatherForecastMSG extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         jTextField1_MySavedLocation = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1_OtherLocation = new javax.swing.JComboBox<>();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
         jButton2_VEL = new javax.swing.JButton();
+        jTextField1_OtherLocation = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,9 +67,6 @@ public class WeatherForecastMSG extends javax.swing.JFrame {
         jTextField1_MySavedLocation.setText("Nablus");
 
         jLabel1.setText("Get Weather Forecast :");
-
-        jComboBox1_OtherLocation.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nablus", "Jerusalem", "Hebron", "Rammallah", "Jenin", "Tulkarem" }));
-        jComboBox1_OtherLocation.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         buttonGroup1.add(jRadioButton1);
         jRadioButton1.setText("             My Saved Location");
@@ -103,9 +100,9 @@ public class WeatherForecastMSG extends javax.swing.JFrame {
                             .addComponent(jRadioButton1)
                             .addComponent(jRadioButton2))
                         .addGap(35, 35, 35)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1_MySavedLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1_OtherLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField1_MySavedLocation, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                            .addComponent(jTextField1_OtherLocation)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -127,8 +124,8 @@ public class WeatherForecastMSG extends javax.swing.JFrame {
                     .addComponent(jTextField1_MySavedLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1_OtherLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton2))
+                    .addComponent(jRadioButton2)
+                    .addComponent(jTextField1_OtherLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addComponent(jButton2_VEL)
                 .addGap(18, 18, 18)
@@ -150,7 +147,7 @@ public class WeatherForecastMSG extends javax.swing.JFrame {
                     Selected_Location=jTextField1_MySavedLocation.getText();
                     break;
                 case "2" :
-                    Selected_Location=jComboBox1_OtherLocation.getSelectedItem().toString();
+                    Selected_Location=jTextField1_OtherLocation.getText();
                     break;
         }
         WeatherForecast today = WeatherForecast.getDay(Selected_Location);
@@ -209,10 +206,10 @@ public class WeatherForecastMSG extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2_VEL;
-    private javax.swing.JComboBox<String> jComboBox1_OtherLocation;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JTextField jTextField1_MySavedLocation;
+    private javax.swing.JTextField jTextField1_OtherLocation;
     // End of variables declaration//GEN-END:variables
 }
