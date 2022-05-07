@@ -2,6 +2,7 @@
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -55,10 +56,14 @@ public class WeatherForecast {
         int temp=0, maxTemp=0, minTemp=0, feelsLike=0;
         String description="";
         try {
-            HttpResponse<String> response = Unirest.get("https://community-open-weather-map.p.rapidapi.com/weather?q=Nablus&lat=0&lon=0&callback=test&id=2172797&lang=null&units=imperial&mode=xml")
+            String charset = "UTF-8";
+            String query = String.format("q=%s",
+            URLEncoder.encode(Location, charset));
+            HttpResponse<String> response = Unirest.get("https://community-open-weather-map.p.rapidapi.com/weather?"+query+"&lat=0&lon=0&callback=test&id=2172797&lang=null&units=imperial&mode=xml")
                     .header("X-RapidAPI-Host", "community-open-weather-map.p.rapidapi.com")
                     .header("X-RapidAPI-Key", "f4c3ccca47msh1d25b694f6c7db2p1ec471jsn79326608e90f")
                     .asString();
+            if(response.getStatus() != 200) return null;
             for(String allDaysSeperator: response.getBody().split("weather")[1].split(",")){
                 System.out.println(allDaysSeperator);
                 if(allDaysSeperator.contains("description")) 
@@ -81,7 +86,7 @@ public class WeatherForecast {
             thisDayWeather = new WeatherForecast(temp, humidity, pressure, windSpeed, maxTemp, minTemp,feelsLike);
             thisDayWeather.setDescription(description);
             System.out.println(thisDayWeather.toString());
-        } catch (UnirestException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(WeatherForecast.class.getName()).log(Level.SEVERE, null, ex);
         }
         return thisDayWeather;
@@ -93,10 +98,14 @@ public class WeatherForecast {
         int temp=0, maxTemp=0, minTemp=0;
         boolean flagEntered = false;
         try {
-            HttpResponse<String> response = Unirest.get("https://community-open-weather-map.p.rapidapi.com/climate/month?q="+Location+"")
+            String charset = "UTF-8";
+            String query = String.format("q=%s",
+            URLEncoder.encode(Location, charset));
+            HttpResponse<String> response = Unirest.get("https://community-open-weather-map.p.rapidapi.com/climate/month?"+charset+"")
 	.header("X-RapidAPI-Host", "community-open-weather-map.p.rapidapi.com")
 	.header("X-RapidAPI-Key", "f4c3ccca47msh1d25b694f6c7db2p1ec471jsn79326608e90f")
 	.asString();
+            if(response.getStatus() != 200) return null;
             
             for(String allDaysSeperator: response.getBody().split("list")[1].split("\"dt\":")){
                 flagEntered = false;
@@ -120,7 +129,7 @@ public class WeatherForecast {
                     System.out.println(weather7Days.get(weather7Days.size()-1));
                 }
             }
-        } catch (UnirestException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(WeatherFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
         return weather7Days;

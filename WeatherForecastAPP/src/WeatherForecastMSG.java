@@ -153,7 +153,12 @@ public class WeatherForecastMSG extends javax.swing.JFrame {
                     Selected_Location=jComboBox1_OtherLocation.getSelectedItem().toString();
                     break;
         }
-        System.out.println(Selected_Location);
+        WeatherForecast today = WeatherForecast.getDay(Selected_Location);
+        if(today == null){
+            JOptionPane.showMessageDialog(rootPane, "Invalid Location Entereed");
+        } else {
+            new WeatherFrame(Selected_Location).setVisible(true);
+        }
     }
     catch(Exception e){
         JOptionPane.showMessageDialog(null, "Please Select Location");

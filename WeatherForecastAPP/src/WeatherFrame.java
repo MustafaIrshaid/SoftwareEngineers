@@ -13,6 +13,7 @@ import java.awt.Font;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -28,9 +29,14 @@ public class WeatherFrame extends javax.swing.JFrame {
     public WeatherFrame(){
         initComponents();
         setLocationRelativeTo(this);
-        Location="Nablus";
+        Location="London";
         weatherForWeek = WeatherForecast.getList(Location);
         weatherForToday = WeatherForecast.getDay(Location);
+        if(weatherForToday == null){
+            JOptionPane.showMessageDialog(rootPane, "Invalid Location Entereed");
+            dispose();
+            return;
+        }
         System.out.println(weatherForToday.toString());
         setTodayValues();
     }
@@ -41,25 +47,30 @@ public class WeatherFrame extends javax.swing.JFrame {
         this.Location = location;
         weatherForWeek = WeatherForecast.getList(Location);
         weatherForToday = WeatherForecast.getDay(Location);
+        if(weatherForToday == null){
+            JOptionPane.showMessageDialog(rootPane, "Invalid Location Entereed");
+            dispose();
+            return;
+        }
         System.out.println(weatherForToday.toString());
         setTodayValues();
     }
 
     void setTodayValues(){
-//        this.jLabel10_tempreture.setFont(new Font("Segoe UI", 0, 56));
-//        this.jLabel9_Comment.setFont(new Font("Segoe UI", 0, 18)); // NOI18N
-//
-//        
-//        
-//        this.jLabel10_tempreture.setText(Integer.toString(WeatherForecast.FirToCil(weatherForToday.getTemp()))+"°C");
-//        this.jLabel11_feelsLike.setText(Integer.toString(WeatherForecast.FirToCil(weatherForToday.getFeelsLike()))+"°C");
-//        this.jLabel9_Comment.setText(weatherForToday.getDescription());
-//        this.jLabel2_location.setText(Location);
-//        this.jLabel7_Humidity.setText(""+weatherForToday.getHumidity());
-//        this.jLabel6_Pressure.setText(""+weatherForToday.getPressure()+"%");
-//        this.jLabel8_WindSpeed.setText(""+weatherForToday.getWindSpeed()+"m/s");        
-//        if(weatherForToday.getDescription().contains("clear"))
-//            jLabel8_weatherIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/weatherIcons/Sun_64px_3.png"))); // NOI18N
+        this.jLabel_currentTempValue.setText(Integer.toString(WeatherForecast.FirToCil(weatherForToday.getTemp()))+"°C");
+        this.jLabel_feelLikeValue.setText(Integer.toString(WeatherForecast.FirToCil(weatherForToday.getFeelsLike()))+"°C");
+        this.jLabel_Description.setText(weatherForToday.getDescription());
+        this.jLabel2_location.setText(Location);
+        this.jLabel_humidityValue.setText(""+weatherForToday.getHumidity());
+        this.jLabel_pressureValue.setText(""+weatherForToday.getPressure()+"%");
+        this.jLabel_windSpeedValue.setText(""+weatherForToday.getWindSpeed()+"m/s");     
+        this.jLabel_minTempValue.setText(Integer.toString(WeatherForecast.FirToCil(weatherForToday.getMinTemp()))+"°C");
+        this.jLabel_maxTempValue.setText(Integer.toString(WeatherForecast.FirToCil(weatherForToday.getMaxTemp()))+"°C");
+
+        if(weatherForToday.getDescription().contains("clear"))
+           this.jLabel_DesIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/weatherIcons/Sun_64px_3.png"))); // NOI18N
+        else if(weatherForToday.getDescription().contains("cloud"))
+           this.jLabel_DesIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/weatherIcons/Cloud_64px.png"))); // NOI18N
     }
     
     /**
@@ -303,7 +314,7 @@ public class WeatherFrame extends javax.swing.JFrame {
         jLabel_DesIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_DesIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/weatherIcons/Sun_64px_3.png"))); // NOI18N
 
-        jLabel_Description.setFont(new java.awt.Font("Urdu Typesetting", 1, 16)); // NOI18N
+        jLabel_Description.setFont(new java.awt.Font("Urdu Typesetting", 1, 24)); // NOI18N
         jLabel_Description.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_Description.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_Description.setText("Description");
@@ -312,14 +323,14 @@ public class WeatherFrame extends javax.swing.JFrame {
         jLabel.setForeground(new java.awt.Color(255, 255, 255));
         jLabel.setText("FEELS LIKE:");
 
-        jLabel_feelLikeValue.setFont(new java.awt.Font("Urdu Typesetting", 1, 12)); // NOI18N
+        jLabel_feelLikeValue.setFont(new java.awt.Font("Urdu Typesetting", 1, 14)); // NOI18N
         jLabel_feelLikeValue.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_feelLikeValue.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_feelLikeValue.setText("Value");
 
         jPanel3.setBackground(new java.awt.Color(67, 41, 82));
 
-        jLabel_currentTempValue.setFont(new java.awt.Font("Urdu Typesetting", 1, 21)); // NOI18N
+        jLabel_currentTempValue.setFont(new java.awt.Font("Urdu Typesetting", 1, 28)); // NOI18N
         jLabel_currentTempValue.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_currentTempValue.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_currentTempValue.setText("currentTemp");
@@ -418,31 +429,31 @@ public class WeatherFrame extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel_day1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel_day1Value, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE))
-                .addGap(29, 29, 29)
+                .addGap(47, 47, 47)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel_day2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel_day2Value, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(46, 46, 46)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel_day3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel_day3Value, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                .addGap(46, 46, 46)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel_day4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel_day4Value, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel_day5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel_day5Value, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                .addGap(36, 36, 36)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel_day6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel_day6Value, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(34, 34, 34)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel_day7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel_day7Value, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addGap(66, 66, 66))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -497,19 +508,24 @@ public class WeatherFrame extends javax.swing.JFrame {
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(215, 215, 215)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addComponent(jLabel1))
-                            .addComponent(jLabel2_location, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(215, 215, 215)
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel10Layout.createSequentialGroup()
+                                        .addGap(31, 31, 31)
+                                        .addComponent(jLabel1))
+                                    .addComponent(jLabel_DesIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel10Layout.createSequentialGroup()
+                                        .addComponent(jLabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel_feelLikeValue, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addComponent(jLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel_feelLikeValue, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel_Description, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel_DesIcon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(224, 224, 224)
+                                .addGap(175, 175, 175)
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel_Description, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+                                    .addComponent(jLabel2_location, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(168, 168, 168)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -535,23 +551,27 @@ public class WeatherFrame extends javax.swing.JFrame {
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel10Layout.createSequentialGroup()
                                 .addComponent(jLabel12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2_location, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel_DesIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(jLabel_Description, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel_feelLikeValue, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)))
+                        .addGap(0, 29, Short.MAX_VALUE)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel2_location, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel_DesIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(7, 7, 7)
+                                .addComponent(jLabel_Description, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(72, 72, 72))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel_feelLikeValue, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)))))
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
