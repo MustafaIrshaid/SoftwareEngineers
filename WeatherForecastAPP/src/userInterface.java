@@ -235,7 +235,6 @@ public class userInterface extends javax.swing.JFrame {
     private void jLabel1_SettingsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1_SettingsMouseClicked
         ProfileSettings ps=new ProfileSettings();
         ps.setVisible(true);
-        this.setVisible(false);
     }//GEN-LAST:event_jLabel1_SettingsMouseClicked
 
     private void jLabel1_LogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1_LogoutMouseClicked

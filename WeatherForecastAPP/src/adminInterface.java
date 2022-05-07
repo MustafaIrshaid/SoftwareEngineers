@@ -252,7 +252,6 @@ public class adminInterface extends javax.swing.JFrame {
     private void jLabel1_Settings1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1_Settings1MouseClicked
         ProfileSettings ps=new ProfileSettings();
         ps.setVisible(true);
-        this.setVisible(false);
     }//GEN-LAST:event_jLabel1_Settings1MouseClicked
 
     private void jLabel2_Notify2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2_Notify2MouseClicked
