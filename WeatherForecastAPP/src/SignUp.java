@@ -46,7 +46,6 @@ public class SignUp extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jTextField1_email = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1_location = new javax.swing.JComboBox<>();
         jTextField1_name = new javax.swing.JTextField();
         jComboBox1_email = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
@@ -59,9 +58,9 @@ public class SignUp extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jTextField1_test = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -104,8 +103,6 @@ public class SignUp extends javax.swing.JFrame {
 
         jLabel3.setText("Location");
 
-        jComboBox1_location.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nablus", "Jerusalem", "Hebron", "Rammallah", "Jenin", "Tulkarem" }));
-
         jComboBox1_email.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "@hotmail.com", "@outlook.com", "@gmail.com" }));
 
         jLabel4.setText("User Name");
@@ -115,6 +112,11 @@ public class SignUp extends javax.swing.JFrame {
         jRadioButton1_User.setSelected(true);
         jRadioButton1_User.setText("User");
         jRadioButton1_User.setAutoscrolls(true);
+        jRadioButton1_User.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jRadioButton1_UserItemStateChanged(evt);
+            }
+        });
 
         jRadioButton2_Manager.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(jRadioButton2_Manager);
@@ -139,30 +141,19 @@ public class SignUp extends javax.swing.JFrame {
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("Rigesteration");
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.setPreferredSize(new java.awt.Dimension(200, 200));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        jLabel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(52, 152, 219)));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-return-32.png"))); // NOI18N
         jLabel13.setToolTipText("");
         jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel13MouseClicked(evt);
+            }
+        });
+
+        jTextField1_test.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1_testActionPerformed(evt);
             }
         });
 
@@ -182,6 +173,18 @@ public class SignUp extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1_SignUp)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jRadioButton1_User)
+                                .addGap(18, 18, 18)
+                                .addComponent(jRadioButton2_Manager))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel2_signin)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(jTextField2_password, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4)
@@ -192,28 +195,15 @@ public class SignUp extends javax.swing.JFrame {
                                 .addComponent(jComboBox1_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
-                            .addComponent(jComboBox1_location, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 43, Short.MAX_VALUE)
+                            .addComponent(jTextField1_test, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(60, 60, 60)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jButton1)
                                 .addGap(98, 98, 98))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(39, 39, 39))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1_SignUp)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jRadioButton1_User)
-                                .addGap(18, 18, 18)
-                                .addComponent(jRadioButton2_Manager))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel2_signin)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(40, 40, 40))))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel13)
@@ -261,13 +251,13 @@ public class SignUp extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox1_location, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jTextField1_test, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(11, 11, 11))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton1)
@@ -308,7 +298,13 @@ public class SignUp extends javax.swing.JFrame {
         String email1=jTextField1_email.getText();
         String email2=jComboBox1_email.getSelectedItem().toString();
         String email=email1+email2;
-        String loc=jComboBox1_location.getSelectedItem().toString();
+        String loc = this.jTextField1_test.getText();
+        
+        WeatherForecast today = WeatherForecast.getDay(loc);
+        if(today == null){
+            JOptionPane.showMessageDialog(rootPane, "Invalid Location Entereed");
+            return;
+        }
         jRadioButton1_User.setActionCommand("user");
         jRadioButton2_Manager.setActionCommand("manager");
         String sub=buttonGroup1.getSelection().getActionCommand();
@@ -333,7 +329,7 @@ public class SignUp extends javax.swing.JFrame {
                     }
 
                     st.executeUpdate(sqlstr);
-                    JOptionPane.showMessageDialog(null, "done");
+                    JOptionPane.showMessageDialog(rootPane, "done");
                     new Login().setVisible(true);
                     dispose();
                 } else {
@@ -389,6 +385,21 @@ public class SignUp extends javax.swing.JFrame {
        jLabel2_signin.setForeground(Color.BLACK);
     }//GEN-LAST:event_jLabel2_signinMouseExited
 
+    private void jTextField1_testActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1_testActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1_testActionPerformed
+
+    private void jRadioButton1_UserItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButton1_UserItemStateChanged
+        jRadioButton1_User.setActionCommand("user");
+        jRadioButton2_Manager.setActionCommand("manager");
+        String sub=buttonGroup1.getSelection().getActionCommand();
+        if(sub.equals("user")) jLabel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(52,152,219)));
+        else                          jLabel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 126, 34)));
+
+
+        
+    }//GEN-LAST:event_jRadioButton1_UserItemStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -429,7 +440,6 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton1_SignUp;
     private javax.swing.JComboBox<String> jComboBox1_email;
-    private javax.swing.JComboBox<String> jComboBox1_location;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -445,11 +455,11 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JRadioButton jRadioButton1_User;
     private javax.swing.JRadioButton jRadioButton2_Manager;
     private javax.swing.JTextField jTextField1_email;
     private javax.swing.JTextField jTextField1_name;
+    private javax.swing.JTextField jTextField1_test;
     private javax.swing.JTextField jTextField2_password;
     // End of variables declaration//GEN-END:variables
 }

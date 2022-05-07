@@ -26,16 +26,20 @@ public class Admin extends User {
         try{
            Class.forName("com.mysql.jdbc.Driver");
            con= DriverManager.getConnection("jdbc:mysql://localhost:3306/softproj","root","");
-           String getid = "select * from user where role != 'admin'";
+//           String getid = "select * from user where role != 'admin'";
+//           ResultSet rs=st.executeQuery(getid);
            Statement st = con.createStatement();
-           ResultSet rs=st.executeQuery(getid);
-           int id;
-           while(rs.next()){
-               id=rs.getInt("user_id");
-               String sqlstr="insert into notifications (`sender_id`, `reciever_id`, `message`) values('"+Login.currentUser.getUserID()+"','"+id+"','"+msg+"')";
-               Statement st1 = con.createStatement();
-               st1.executeUpdate(sqlstr);
-           }
+           String sqlstr="insert into notifications (`sender_id`, `message`) values('"+Login.currentUser.getUserID()+"','"+msg+"')";
+           System.out.println(sqlstr);
+           Statement st1 = con.createStatement();
+           st1.executeUpdate(sqlstr);
+//           int id;
+//           while(rs.next()){
+//               id=rs.getInt("user_id");
+//               String sqlstr="insert into notifications (`sender_id`, `reciever_id`, `message`) values('"+Login.currentUser.getUserID()+"','"+id+"','"+msg+"')";
+//               Statement st1 = con.createStatement();
+//               st1.executeUpdate(sqlstr);
+//           }
            con.close();
        
              JOptionPane.showMessageDialog(null, "done!");

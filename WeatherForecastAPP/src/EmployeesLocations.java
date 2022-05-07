@@ -3,6 +3,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -26,25 +27,26 @@ public class EmployeesLocations extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
         this.setDefaultCloseOperation(EmployeesLocations.HIDE_ON_CLOSE);
         
-        int manageID=Login.currentUser.getUserID();
-         DefaultTableModel model = (DefaultTableModel)this.jTable1.getModel();
-        Connection con=null;
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-           con= DriverManager.getConnection("jdbc:mysql://localhost:3306/softproj","root","");
-           
-         String getid = "select * from user where manager_id='"+manageID+"'";
-           Statement st = con.createStatement();
-           ResultSet rs=st.executeQuery(getid);
-           while(rs.next()){
-               model.insertRow(model.getRowCount(),new Object[]{rs.getString(2),rs.getString(4)});
-           }
-
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null,"hello word");
-            
-        }
+        this.displayEmployees("");
+//        int manageID=Login.currentUser.getUserID();
+//         DefaultTableModel model = (DefaultTableModel)this.jTable1.getModel();
+//        Connection con=null;
+//        try{
+//            Class.forName("com.mysql.jdbc.Driver");
+//           con= DriverManager.getConnection("jdbc:mysql://localhost:3306/softproj","root","");
+//           
+//         String getid = "select * from user where manager_id='"+manageID+"'";
+//           Statement st = con.createStatement();
+//           ResultSet rs=st.executeQuery(getid);
+//           while(rs.next()){
+//               model.insertRow(model.getRowCount(),new Object[]{rs.getString(2),rs.getString(4)});
+//           }
+//
+//        }
+//        catch(Exception e){
+//            JOptionPane.showMessageDialog(null,"hello word");
+//            
+//        }
     }
 
     /**
@@ -59,6 +61,8 @@ public class EmployeesLocations extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        jTextField1_searchUser = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1044, 358));
@@ -86,9 +90,26 @@ public class EmployeesLocations extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 0, 0));
         jLabel1.setText("Employees Locations");
+
+        jTextField1_searchUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1_searchUserActionPerformed(evt);
+            }
+        });
+        jTextField1_searchUser.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField1_searchUserKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField1_searchUserKeyReleased(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Urdu Typesetting", 1, 12)); // NOI18N
+        jLabel2.setText("Enter a name:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -97,19 +118,28 @@ public class EmployeesLocations extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 938, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 938, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField1_searchUser, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(41, 41, 41)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextField1_searchUser)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(24, 24, 24)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -117,9 +147,37 @@ public class EmployeesLocations extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-       
+        String userPressedLocation = users.get(this.jTable1.getSelectedRow()).getLocation();
+        new WeatherFrame(userPressedLocation).setVisible(true);
     }//GEN-LAST:event_jTable1MouseClicked
 
+    private void jTextField1_searchUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1_searchUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1_searchUserActionPerformed
+
+    private void jTextField1_searchUserKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1_searchUserKeyPressed
+        
+    }//GEN-LAST:event_jTextField1_searchUserKeyPressed
+
+    private void jTextField1_searchUserKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1_searchUserKeyReleased
+        this.displayEmployees(jTextField1_searchUser.getText());
+    }//GEN-LAST:event_jTextField1_searchUserKeyReleased
+
+    
+    public void displayEmployees(String name){
+        users = Search.searchEmployees(name);
+        DefaultTableModel model = (DefaultTableModel)this.jTable1.getModel();
+        int rowCount = model.getRowCount();
+        for(int i= rowCount - 1 ; i >= 0 ; i--){
+                model.removeRow(i);
+        }
+        if(!users.isEmpty()){
+            for(int i=0 ; i<users.size() ; i++){
+                String usersConvertor[] = {users.get(i).getUsername(), users.get(i).getLocation()};
+                model.addRow(usersConvertor);
+            }
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -154,10 +212,14 @@ public class EmployeesLocations extends javax.swing.JFrame {
             }
         });
     }
+    
+    ArrayList<User> users;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1_searchUser;
     // End of variables declaration//GEN-END:variables
 }

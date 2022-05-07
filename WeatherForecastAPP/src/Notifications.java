@@ -68,7 +68,7 @@ public class Notifications {
             Statement st = con.createStatement();
             
             //Notifications table to get all the notifications for this user, and user table to get the sender's name 
-            String sqlstr="select * from notifications,user where reciever_id = '"+reciever.getUserID()+"'  and notifications.sender_id = user.user_id";
+            String sqlstr="select * from notifications,user where (reciever_id = '"+reciever.getUserID()+"' or reciever_id IS NULL)  and notifications.sender_id = user.user_id";
             ResultSet rs = st.executeQuery(sqlstr);
             while(rs.next()){
                 temp.add(new Notifications(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getString(4), rs.getString("username")));

@@ -37,8 +37,12 @@ public class NotificationsFrame extends javax.swing.JFrame {
             this.jPanel2_tablePanel.setVisible(true);
             this.jPanel3_specificNotifications.setVisible(false);
             for(int i=0 ; i<userNotifications.size() ; i++){
-                String usersConvertor[] = {userNotifications.get(i).getSenderName(), userNotifications.get(i).getMessage()};
-                model.addRow(usersConvertor);
+                if(userNotifications.get(i).getSenderID() != Login.currentUser.getUserID()){
+                    String userName = userNotifications.get(i).getSenderName();
+                    if(userNotifications.get(i).getRecieverID() == 0) userName = "[Admin] " + userName;
+                    String usersConvertor[] = {userName, userNotifications.get(i).getMessage()};
+                    model.addRow(usersConvertor);
+                }
             }
         } else {
             
@@ -221,7 +225,11 @@ public class NotificationsFrame extends javax.swing.JFrame {
         this.jPanel2_tablePanel.setVisible(false);
         this.jPanel3_specificNotifications.setVisible(true);
         this.jLabel1_back.setVisible(true);
-        this.jLabel1_delete.setVisible(true);
+        
+        if(this.selectedNotification.getRecieverID() != 0){
+            this.jLabel1_delete.setVisible(true);
+        }
+        
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jLabel1_backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1_backMouseClicked

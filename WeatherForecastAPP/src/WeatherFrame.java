@@ -29,7 +29,7 @@ public class WeatherFrame extends javax.swing.JFrame {
     public WeatherFrame(){
         initComponents();
         setLocationRelativeTo(this);
-        Location="London";
+        Location="New York";
         weatherForWeek = WeatherForecast.getList(Location);
         weatherForToday = WeatherForecast.getDay(Location);
         if(weatherForToday == null){
@@ -44,6 +44,7 @@ public class WeatherFrame extends javax.swing.JFrame {
     public WeatherFrame(String location){
         initComponents();
         setLocationRelativeTo(this);
+        this.setDefaultCloseOperation(WeatherFrame.HIDE_ON_CLOSE);
         this.Location = location;
         weatherForWeek = WeatherForecast.getList(Location);
         weatherForToday = WeatherForecast.getDay(Location);
@@ -71,6 +72,10 @@ public class WeatherFrame extends javax.swing.JFrame {
            this.jLabel_DesIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/weatherIcons/Sun_64px_3.png"))); // NOI18N
         else if(weatherForToday.getDescription().contains("cloud"))
            this.jLabel_DesIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/weatherIcons/Cloud_64px.png"))); // NOI18N
+        else if(weatherForToday.getDescription().contains("snow"))
+           this.jLabel_DesIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/weatherIcons/Snow_64px.png"))); // NOI18N
+        else if(weatherForToday.getDescription().contains("rain"))
+           this.jLabel_DesIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/weatherIcons/Rain_64px_1.png"))); // NOI18N
     }
     
     /**

@@ -64,6 +64,7 @@ public class WeatherForecast {
                     .header("X-RapidAPI-Key", "f4c3ccca47msh1d25b694f6c7db2p1ec471jsn79326608e90f")
                     .asString();
             if(response.getStatus() != 200) return null;
+            System.out.println("Day-->" + response.getBody());
             for(String allDaysSeperator: response.getBody().split("weather")[1].split(",")){
                 System.out.println(allDaysSeperator);
                 if(allDaysSeperator.contains("description")) 
@@ -106,7 +107,8 @@ public class WeatherForecast {
 	.header("X-RapidAPI-Key", "f4c3ccca47msh1d25b694f6c7db2p1ec471jsn79326608e90f")
 	.asString();
             if(response.getStatus() != 200) return null;
-            
+            System.out.println("Month-->" + response.getBody());
+
             for(String allDaysSeperator: response.getBody().split("list")[1].split("\"dt\":")){
                 flagEntered = false;
                 for(String specificDaySeperator: allDaysSeperator.split(",")){
