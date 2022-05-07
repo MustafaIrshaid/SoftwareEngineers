@@ -101,7 +101,7 @@ public class WeatherForecast {
             String charset = "UTF-8";
             String query = String.format("q=%s",
             URLEncoder.encode(Location, charset));
-            HttpResponse<String> response = Unirest.get("https://community-open-weather-map.p.rapidapi.com/climate/month?"+charset+"")
+            HttpResponse<String> response = Unirest.get("https://community-open-weather-map.p.rapidapi.com/climate/month?"+query+"")
 	.header("X-RapidAPI-Host", "community-open-weather-map.p.rapidapi.com")
 	.header("X-RapidAPI-Key", "f4c3ccca47msh1d25b694f6c7db2p1ec471jsn79326608e90f")
 	.asString();
