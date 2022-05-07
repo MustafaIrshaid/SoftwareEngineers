@@ -76,6 +76,11 @@ public class managerInterface extends javax.swing.JFrame {
 
         jButton4_notifyEmployees.setBackground(new java.awt.Color(255, 255, 255));
         jButton4_notifyEmployees.setText("Notify My Employees");
+        jButton4_notifyEmployees.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4_notifyEmployeesActionPerformed(evt);
+            }
+        });
 
         jLabel1_Logout1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1_Logout1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/logout.png"))); // NOI18N
@@ -244,6 +249,10 @@ public class managerInterface extends javax.swing.JFrame {
     private void jLabel2_Notify2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2_Notify2MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel2_Notify2MouseClicked
+
+    private void jButton4_notifyEmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4_notifyEmployeesActionPerformed
+        new NotifyEmployees().setVisible(true);
+    }//GEN-LAST:event_jButton4_notifyEmployeesActionPerformed
 
     /**
      * @param args the command line arguments

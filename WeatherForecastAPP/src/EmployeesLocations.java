@@ -213,6 +213,7 @@ public class EmployeesLocations extends javax.swing.JFrame {
         });
     }
     
+    // Custom declarations
     ArrayList<User> users;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
