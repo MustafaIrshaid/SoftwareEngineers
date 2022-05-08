@@ -81,6 +81,11 @@ public class User {
     public String getSubscription() {
         return subscription;
     }
+    
+    public void setSubscription(String subs){
+        this.subscription = subs;
+    }
+    
 
     public String getRole() {
         return role;

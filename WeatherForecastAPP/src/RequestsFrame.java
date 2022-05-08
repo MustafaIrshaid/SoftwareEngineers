@@ -73,10 +73,13 @@ public class RequestsFrame extends javax.swing.JFrame {
         jRadioButton1_acceptRequest = new javax.swing.JRadioButton();
         jRadioButton2_rejectRequest = new javax.swing.JRadioButton();
         jButton1_respondRequest = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1_name.setFont(new java.awt.Font("Traditional Arabic", 1, 14)); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1_name.setFont(new java.awt.Font("Segoe Script", 1, 14)); // NOI18N
         jLabel1_name.setText("Name's Requests");
 
         jLabel1_back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/back.png"))); // NOI18N
@@ -202,6 +205,8 @@ public class RequestsFrame extends javax.swing.JFrame {
                     .addContainerGap(340, Short.MAX_VALUE)))
         );
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/addRequestIcon.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -209,7 +214,9 @@ public class RequestsFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1_name)
-                .addGap(201, 201, 201)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addGap(151, 151, 151)
                 .addComponent(jLabel1_back)
                 .addContainerGap())
             .addComponent(jPanel2_tablePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -220,10 +227,12 @@ public class RequestsFrame extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1_back, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel1_name))
-                    .addComponent(jLabel1_back, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1_name)
+                            .addComponent(jLabel1))))
                 .addGap(1, 1, 1)
                 .addComponent(jPanel2_tablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -324,6 +333,7 @@ public class RequestsFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1_respondRequest;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel1_back;
     private javax.swing.JLabel jLabel1_name;
     private javax.swing.JPanel jPanel1;

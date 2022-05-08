@@ -120,18 +120,18 @@ public class givefeedback extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jRadioButton5_givefeedback))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(210, 210, 210)
-                        .addComponent(jButton1_givefeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel13)
                         .addGap(72, 72, 72)
-                        .addComponent(jLabel1_givefeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel1_givefeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(208, 208, 208)
+                        .addComponent(jButton1_givefeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(87, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(100, 100, 100))
+                .addGap(98, 98, 98))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,11 +147,11 @@ public class givefeedback extends javax.swing.JFrame {
                     .addComponent(jRadioButton3_givefeedback)
                     .addComponent(jRadioButton2_givefeedback)
                     .addComponent(jRadioButton1_givefeedback))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1_givefeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -223,7 +223,13 @@ public class givefeedback extends javax.swing.JFrame {
             
         st.executeUpdate(s);
         con.close();
-        JOptionPane.showMessageDialog(null, "Your feedback added Succefully");
+        JOptionPane.showMessageDialog(rootPane, "Your feedback added Succefully");
+        dispose();
+        if(Login.currentUser.getUsername().toLowerCase().equals("manager")){
+            new managerInterface().setVisible(true);
+        } else {
+            new userInterface().setVisible(true);
+        }
         
         } catch (Exception ex) {
             Logger.getLogger(givefeedback.class.getName()).log(Level.SEVERE, null, ex);
@@ -242,9 +248,11 @@ public class givefeedback extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton2_givefeedbackActionPerformed
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
-       userInterface face=new userInterface();
-        
-        face.setVisible(true);
+        if(Login.currentUser.getUsername().toLowerCase().equals("manager")){
+            new managerInterface().setVisible(true);
+        } else {
+            new userInterface().setVisible(true);
+        }
         this.setVisible(false);
     }//GEN-LAST:event_jLabel13MouseClicked
 

@@ -210,7 +210,6 @@ public class userInterface extends javax.swing.JFrame {
 
     private void jButton4_addFeedBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4_addFeedBackActionPerformed
         // TODO add your handling code here:
-        
         dispose();
         new givefeedback().setVisible(true);
         

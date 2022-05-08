@@ -73,6 +73,11 @@ public class managerInterface extends javax.swing.JFrame {
 
         jButton3_GiveFeedBack.setBackground(new java.awt.Color(255, 255, 255));
         jButton3_GiveFeedBack.setText("Give Feed Back");
+        jButton3_GiveFeedBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3_GiveFeedBackActionPerformed(evt);
+            }
+        });
 
         jButton4_notifyEmployees.setBackground(new java.awt.Color(255, 255, 255));
         jButton4_notifyEmployees.setText("Notify My Employees");
@@ -253,6 +258,11 @@ public class managerInterface extends javax.swing.JFrame {
     private void jButton4_notifyEmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4_notifyEmployeesActionPerformed
         new NotifyEmployees().setVisible(true);
     }//GEN-LAST:event_jButton4_notifyEmployeesActionPerformed
+
+    private void jButton3_GiveFeedBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3_GiveFeedBackActionPerformed
+        dispose();
+        new givefeedback().setVisible(true);
+    }//GEN-LAST:event_jButton3_GiveFeedBackActionPerformed
 
     /**
      * @param args the command line arguments
