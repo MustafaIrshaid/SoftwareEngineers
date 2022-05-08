@@ -31,6 +31,7 @@ public class ProfileSettings extends javax.swing.JFrame {
         else {
             userImg.setIcon(new javax.swing.ImageIcon(getClass().getResource(Login.currentUser.getimg())));
         }
+        this.jTextField1.setText(location);
         this.setDefaultCloseOperation(ProfileSettings.HIDE_ON_CLOSE);
     }
 
@@ -44,22 +45,20 @@ public class ProfileSettings extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jComboBox1_sub = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jButton1_Confirm = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         userImg = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jComboBox1_sub.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "manager", "user" }));
-
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel1.setText("Subscription\t");
+        jLabel1.setText("Location:");
 
         jButton1_Confirm.setText("Confirm");
         jButton1_Confirm.addActionListener(new java.awt.event.ActionListener() {
@@ -88,24 +87,25 @@ public class ProfileSettings extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jComboBox1_sub, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel3))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(37, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1_Confirm)
-                    .addComponent(userImg, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel3)))
+                        .addGap(28, 28, 28)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1_Confirm, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(userImg, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
                 .addGap(27, 27, 27))
         );
         jPanel1Layout.setVerticalGroup(
@@ -118,7 +118,7 @@ public class ProfileSettings extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jComboBox1_sub, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(121, 121, 121)
@@ -146,14 +146,21 @@ public class ProfileSettings extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1_ConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_ConfirmActionPerformed
-        String sub=jComboBox1_sub.getSelectedItem().toString();
-         
+        String loc = this.jTextField1.getText();
+        
+        WeatherForecast today = WeatherForecast.getDay(loc);
+        if(today == null){
+            JOptionPane.showMessageDialog(rootPane, "Invalid Location Entereed");
+            return;
+        }
+        
+        location = loc;
         Connection con=null;
        
         try{
             Class.forName("com.mysql.jdbc.Driver");
             con= DriverManager.getConnection("jdbc:mysql://localhost:3306/softproj","root","");
-            String sqlstr="UPDATE `user` SET `subscription`='"+sub+"'"
+            String sqlstr="UPDATE `user` SET `location`='"+loc+"'"
                                       + ", pic_url ='"+filename+"'"
                                       + "WHERE user_id = '"+Login.currentUser.getUserID()+"'";
             Statement st = con.createStatement();        
@@ -161,7 +168,7 @@ public class ProfileSettings extends javax.swing.JFrame {
             con.close();
             JOptionPane.showMessageDialog(null, "done");
             Login.currentUser.setimg(filename);
-            Login.currentUser.setSubscription(sub);
+            Login.currentUser.setLocation(location);
         } catch(Exception e) {
                  JOptionPane.showMessageDialog(null, e);
         }
@@ -230,15 +237,17 @@ public class ProfileSettings extends javax.swing.JFrame {
     }
     
     String filename = Login.currentUser.getimg();
-
+    String location = Login.currentUser.getLocation();
+            
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton1_Confirm;
-    private javax.swing.JComboBox<String> jComboBox1_sub;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel userImg;
     // End of variables declaration//GEN-END:variables
 }
