@@ -225,7 +225,7 @@ public class givefeedback extends javax.swing.JFrame {
         con.close();
         JOptionPane.showMessageDialog(rootPane, "Your feedback added Succefully");
         dispose();
-        if(Login.currentUser.getUsername().toLowerCase().equals("manager")){
+        if(Login.currentUser.getSubscription().toLowerCase().equals("manager")){
             new managerInterface().setVisible(true);
         } else {
             new userInterface().setVisible(true);
@@ -248,7 +248,7 @@ public class givefeedback extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton2_givefeedbackActionPerformed
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
-        if(Login.currentUser.getUsername().toLowerCase().equals("manager")){
+        if(Login.currentUser.getSubscription().toLowerCase().equals("manager")){
             new managerInterface().setVisible(true);
         } else {
             new userInterface().setVisible(true);

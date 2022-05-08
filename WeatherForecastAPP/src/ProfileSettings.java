@@ -160,7 +160,7 @@ public class ProfileSettings extends javax.swing.JFrame {
         try{
             Class.forName("com.mysql.jdbc.Driver");
             con= DriverManager.getConnection("jdbc:mysql://localhost:3306/softproj","root","");
-            String sqlstr="UPDATE `user` SET `location`='"+loc+"'"
+            String sqlstr="UPDATE `user` SET `location`='"+location+"'"
                                       + ", pic_url ='"+filename+"'"
                                       + "WHERE user_id = '"+Login.currentUser.getUserID()+"'";
             Statement st = con.createStatement();        
