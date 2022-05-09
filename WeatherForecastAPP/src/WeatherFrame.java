@@ -11,6 +11,7 @@ import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import java.awt.Font;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -29,7 +30,7 @@ public class WeatherFrame extends javax.swing.JFrame {
     public WeatherFrame(){
         initComponents();
         setLocationRelativeTo(this);
-        Location="New York";
+        Location="Nablus";
         weatherForWeek = WeatherForecast.getList(Location);
         weatherForToday = WeatherForecast.getDay(Location);
         if(weatherForToday == null){
@@ -39,6 +40,7 @@ public class WeatherFrame extends javax.swing.JFrame {
         }
         System.out.println(weatherForToday.toString());
         setTodayValues();
+        setWeekValues();
     }
     
     public WeatherFrame(String location){
@@ -55,8 +57,21 @@ public class WeatherFrame extends javax.swing.JFrame {
         }
         System.out.println(weatherForToday.toString());
         setTodayValues();
+        setWeekValues();        
     }
 
+    
+    private void setWeekValues() {
+        
+        this.jLabel_day1Value.setText(Integer.toString(weatherForWeek.get(0).getTemp()) + " F");
+        this.jLabel_day2Value.setText(Integer.toString(weatherForWeek.get(1).getTemp()) + " F");
+        this.jLabel_day3Value.setText(Integer.toString(weatherForWeek.get(2).getTemp()) + " F");
+        this.jLabel_day4Value.setText(Integer.toString(weatherForWeek.get(3).getTemp()) + " F");
+        this.jLabel_day5Value.setText(Integer.toString(weatherForWeek.get(4).getTemp()) + " F");
+        this.jLabel_day6Value.setText(Integer.toString(weatherForWeek.get(5).getTemp()) + " F");
+        this.jLabel_day7Value.setText(Integer.toString(weatherForWeek.get(6).getTemp()) + " F");
+    }
+    
     void setTodayValues(){
         this.jLabel_currentTempValue.setText(Integer.toString(WeatherForecast.FirToCil(weatherForToday.getTemp()))+"°C");
         this.jLabel_feelLikeValue.setText(Integer.toString(WeatherForecast.FirToCil(weatherForToday.getFeelsLike()))+"°C");
@@ -68,6 +83,11 @@ public class WeatherFrame extends javax.swing.JFrame {
         this.jLabel_minTempValue.setText(Integer.toString(WeatherForecast.FirToCil(weatherForToday.getMinTemp()))+"°C");
         this.jLabel_maxTempValue.setText(Integer.toString(WeatherForecast.FirToCil(weatherForToday.getMaxTemp()))+"°C");
 
+        java.util.Date date = new java.util.Date();    
+        this.jLabel_DayMonth.setText(date.toString().substring(0, 11).replaceFirst(" ", " , "));
+        
+        this.jLabel_Time.setText(date.toString().substring(11, 16));
+        
         if(weatherForToday.getDescription().contains("clear"))
            this.jLabel_DesIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/weatherIcons/Sun_64px_3.png"))); // NOI18N
         else if(weatherForToday.getDescription().contains("cloud"))
@@ -693,4 +713,5 @@ public class WeatherFrame extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     // End of variables declaration//GEN-END:variables
+
 }
