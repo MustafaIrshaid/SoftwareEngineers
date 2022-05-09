@@ -5,7 +5,7 @@ This Project is a Weather Forecast Program which requires registering your own a
 On the registeration process, you will have the choice of choosing a subscription wether (Normal User or Manager).
 A manager subscription would give you the ability to send other users a request to be one of your employees. (Might be needed for Companies)
 A manager subscription would give you the ability to send some of your employees or even all of them a notification using a seperated, easy to deal with Frame.
-Any User/Manager will have the ability of searching for other users and sending them notifications (messages).
+Any User/Manager/Admin will have the ability of searching for other users and sending them notifications (messages).
 Any User/Manager will have the ability to give their feedbacks to the program which can be viewed and replied to by an Admin.
 An Admin can send notifications for all the users using an easy to deal with Frame.
 For the Weather, it's connected with an API which provides us full informations of the current weather and the weather for 7 days ahead.
